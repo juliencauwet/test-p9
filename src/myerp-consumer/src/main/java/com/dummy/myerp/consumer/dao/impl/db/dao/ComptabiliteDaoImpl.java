@@ -267,4 +267,6 @@ public class ComptabiliteDaoImpl extends AbstractDbConsumer implements Comptabil
         vSqlParams.addValue("ecriture_id", pEcritureId);
         vJdbcTemplate.update(SQLdeleteListLigneEcritureComptable, vSqlParams);
     }
+
+
 }

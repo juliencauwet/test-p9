@@ -1,23 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8179c5fe-066f-4b3d-a147-ce2a8e5e9fe8" name="Default" comment="1er todo addReference:">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/julien.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+    <list default="true" id="8179c5fe-066f-4b3d-a147-ce2a8e5e9fe8" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/myerp-consumer/src/main/java/com/dummy/myerp/consumer/dao/impl/db/rowmapper/comptabilite/SequenceEcritureComptableRM.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/docker/dev/docker-compose.yml" afterPath="$PROJECT_DIR$/docker/dev/docker-compose.yml" />
-      <change beforePath="$PROJECT_DIR$/docker/dev/init/db/docker-entrypoint-initdb.d/01_create_schema.sql" afterPath="$PROJECT_DIR$/docker/dev/init/docker-entrypoint-initdb.d/01_create_schema.sql" />
-      <change beforePath="$PROJECT_DIR$/docker/dev/init/db/docker-entrypoint-initdb.d/02_create_tables.sql" afterPath="$PROJECT_DIR$/docker/dev/init/docker-entrypoint-initdb.d/02_create_tables.sql" />
-      <change beforePath="$PROJECT_DIR$/docker/dev/init/db/docker-entrypoint-initdb.d/21_insert_data_demo.ods" afterPath="$PROJECT_DIR$/docker/dev/init/db/21_insert_data_demo.ods" />
-      <change beforePath="$PROJECT_DIR$/docker/dev/init/db/docker-entrypoint-initdb.d/21_insert_data_demo.sql" afterPath="$PROJECT_DIR$/docker/dev/init/docker-entrypoint-initdb.d/21_insert_data_demo.sql" />
-      <change beforePath="$PROJECT_DIR$/src/myerp-business/src/main/java/com/dummy/myerp/business/impl/manager/ComptabiliteManagerImpl.java" afterPath="$PROJECT_DIR$/src/myerp-business/src/main/java/com/dummy/myerp/business/impl/manager/ComptabiliteManagerImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/myerp-business/src/test/java/com/dummy/myerp/business/impl/manager/ComptabiliteManagerImplTest.java" afterPath="$PROJECT_DIR$/src/myerp-business/src/test/java/com/dummy/myerp/business/impl/manager/ComptabiliteManagerImplTest.java" />
-      <change beforePath="$PROJECT_DIR$/src/myerp-consumer/src/main/resources/com/dummy/myerp/consumer/sqlContext.xml" afterPath="$PROJECT_DIR$/src/myerp-consumer/src/main/resources/com/dummy/myerp/consumer/sqlContext.xml" />
-      <change beforePath="$PROJECT_DIR$/src/myerp-model/src/main/java/com/dummy/myerp/model/bean/comptabilite/SequenceEcritureComptable.java" afterPath="$PROJECT_DIR$/src/myerp-model/src/main/java/com/dummy/myerp/model/bean/comptabilite/SequenceEcritureComptable.java" />
-      <change beforePath="$PROJECT_DIR$/src/myerp-model/src/test/java/com/dummy/myerp/model/bean/comptabilite/EcritureComptableTest.java" afterPath="$PROJECT_DIR$/src/myerp-model/src/test/java/com/dummy/myerp/model/bean/comptabilite/EcritureComptableTest.java" />
+      <change beforePath="$PROJECT_DIR$/src/myerp-consumer/src/main/java/com/dummy/myerp/consumer/dao/impl/db/dao/ComptabiliteDaoImpl.java" afterPath="$PROJECT_DIR$/src/myerp-consumer/src/main/java/com/dummy/myerp/consumer/dao/impl/db/dao/ComptabiliteDaoImpl.java" />
     </list>
     <ignored path="$PROJECT_DIR$/src/myerp-consumer/target/" />
     <ignored path="$PROJECT_DIR$/src/myerp-business/target/" />
@@ -86,22 +73,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DaoProxyImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/myerp-consumer/src/main/java/com/dummy/myerp/consumer/dao/impl/DaoProxyImpl.java">
+      <file leaf-file-name="ComptabiliteDaoImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/myerp-consumer/src/main/java/com/dummy/myerp/consumer/dao/impl/db/dao/ComptabiliteDaoImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="79">
-              <caret line="9" column="19" lean-forward="false" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+            <state relative-caret-position="386">
+              <caret line="270" column="0" lean-forward="false" selection-start-line="270" selection-start-column="0" selection-end-line="270" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ComptabiliteDaoImpl.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/myerp-consumer/src/main/java/com/dummy/myerp/consumer/dao/impl/db/dao/ComptabiliteDaoImpl.java">
+      <file leaf-file-name="SequenceEcritureComptableRM.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/myerp-consumer/src/main/java/com/dummy/myerp/consumer/dao/impl/db/rowmapper/comptabilite/SequenceEcritureComptableRM.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="268" column="5" lean-forward="true" selection-start-line="268" selection-start-column="5" selection-end-line="268" selection-end-column="5" />
-              <folding />
+            <state relative-caret-position="210">
+              <caret line="16" column="8" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -109,8 +98,8 @@
       <file leaf-file-name="LigneEcritureComptableRM.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/myerp-consumer/src/main/java/com/dummy/myerp/consumer/dao/impl/db/rowmapper/comptabilite/LigneEcritureComptableRM.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+            <state relative-caret-position="360">
+              <caret line="29" column="5" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="29" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -187,6 +176,13 @@
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -206,6 +202,8 @@
         <option value="$PROJECT_DIR$/docker/dev/docker-compose.yml" />
         <option value="$PROJECT_DIR$/src/myerp-model/src/main/java/com/dummy/myerp/model/bean/comptabilite/SequenceEcritureComptable.java" />
         <option value="$PROJECT_DIR$/src/myerp-business/src/main/java/com/dummy/myerp/business/impl/manager/ComptabiliteManagerImpl.java" />
+        <option value="$PROJECT_DIR$/src/myerp-consumer/src/main/java/com/dummy/myerp/consumer/dao/impl/db/dao/ComptabiliteDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/myerp-consumer/src/main/java/com/dummy/myerp/consumer/dao/impl/db/rowmapper/comptabilite/SequenceEcritureComptableRM.java" />
       </list>
     </option>
   </component>
@@ -748,12 +746,20 @@
       <updated>1537784011168</updated>
       <workItem from="1537784012781" duration="10357000" />
       <workItem from="1537964116466" duration="219000" />
-      <workItem from="1538203043180" duration="18525000" />
+      <workItem from="1538203043180" duration="19444000" />
     </task>
+    <task id="LOCAL-00001" summary="1er todo addReference: recherche du code et année de écriture comptable">
+      <created>1538324051507</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1538324051507</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29101000" />
+    <option name="totallyTimeSpent" value="30020000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -805,6 +811,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="1er todo addReference: recherche du code et année de écriture comptable" />
+    <option name="LAST_COMMIT_MESSAGE" value="1er todo addReference: recherche du code et année de écriture comptable" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1174,14 +1184,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/myerp-consumer/src/main/java/com/dummy/myerp/consumer/dao/impl/db/rowmapper/comptabilite/LigneEcritureComptableRM.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/myerp-model/src/main/java/com/dummy/myerp/model/bean/comptabilite/SequenceEcritureComptable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="260">
@@ -1255,8 +1257,26 @@
     <entry file="file://$PROJECT_DIR$/src/myerp-consumer/src/main/java/com/dummy/myerp/consumer/dao/impl/db/dao/ComptabiliteDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="386">
-          <caret line="268" column="5" lean-forward="true" selection-start-line="268" selection-start-column="5" selection-end-line="268" selection-end-column="5" />
+          <caret line="270" column="0" lean-forward="false" selection-start-line="270" selection-start-column="0" selection-end-line="270" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/myerp-consumer/src/main/java/com/dummy/myerp/consumer/dao/impl/db/rowmapper/comptabilite/LigneEcritureComptableRM.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="29" column="5" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="29" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/myerp-consumer/src/main/java/com/dummy/myerp/consumer/dao/impl/db/rowmapper/comptabilite/SequenceEcritureComptableRM.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="16" column="8" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
