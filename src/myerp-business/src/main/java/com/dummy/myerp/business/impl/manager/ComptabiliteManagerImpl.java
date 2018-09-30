@@ -1,20 +1,19 @@
 package com.dummy.myerp.business.impl.manager;
 
 import java.math.BigDecimal;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Set;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 
+import com.dummy.myerp.model.bean.comptabilite.*;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.transaction.TransactionStatus;
 import com.dummy.myerp.business.contrat.manager.ComptabiliteManager;
 import com.dummy.myerp.business.impl.AbstractBusinessManager;
-import com.dummy.myerp.model.bean.comptabilite.CompteComptable;
-import com.dummy.myerp.model.bean.comptabilite.EcritureComptable;
-import com.dummy.myerp.model.bean.comptabilite.JournalComptable;
-import com.dummy.myerp.model.bean.comptabilite.LigneEcritureComptable;
 import com.dummy.myerp.technical.exception.FunctionalException;
 import com.dummy.myerp.technical.exception.NotFoundException;
 
@@ -66,6 +65,15 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
         /* Le principe :
                 1.  Remonter depuis la persitance la dernière valeur de la séquence du journal pour l'année de l'écriture
                     (table sequence_ecriture_comptable)
+         */
+       String code = pEcritureComptable.getJournal().getCode();
+       Calendar cal = Calendar.getInstance();
+       cal.setTime(pEcritureComptable.getDate());
+       int annee = cal.get(Calendar.YEAR);
+
+
+
+        /*
                 2.  * S'il n'y a aucun enregistrement pour le journal pour l'année concernée :
                         1. Utiliser le numéro 1.
                     * Sinon :
