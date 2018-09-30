@@ -1,34 +1,25 @@
 package com.dummy.myerp.consumer.dao.impl.db.rowmapper.comptabilite;
 
-import com.dummy.myerp.consumer.dao.impl.cache.CompteComptableDaoCache;
-import com.dummy.myerp.model.bean.comptabilite.LigneEcritureComptable;
+import com.dummy.myerp.consumer.dao.impl.cache.JournalComptableDaoCache;
+import com.dummy.myerp.model.bean.comptabilite.SequenceEcritureComptable;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class SequenceEcritureComptableRM implements RowMapper<SequenceEcritureComptableRM>{
+public class SequenceEcritureComptableRM implements RowMapper<SequenceEcritureComptable>{
 
-    /** CompteComptableDaoCache */
-    private final CompteComptableDaoCache compteComptableDaoCache = new CompteComptableDaoCache();
+    /** JournalComptableDaoCache */
+    private final JournalComptableDaoCache compteComptableDaoCache = new JournalComptableDaoCache();
 
     @Override
-    public SequenceEcritureComptableRM mapRow(ResultSet rs, int rowNum) throws SQLException {
+    public SequenceEcritureComptable mapRow(ResultSet rs, int rowNum) throws SQLException {
+        SequenceEcritureComptable vBean = new SequenceEcritureComptable();
+        vBean.setAnnee(rs.getInt("annee"));
+        vBean.setCode(rs.getString("journal_code"));
+        vBean.setDerniereValeur(rs.getInt("derniere_valeur"));
 
-
-        return null;
+        return vBean;
     }
 
-
-    // @Override
-   // public LigneEcritureComptable mapRow(ResultSet pRS, int pRowNum) throws SQLException {
-   //     LigneEcritureComptable vBean = new LigneEcritureComptable();
-   //     vBean.setCompteComptable(compteComptableDaoCache.getByNumero(pRS.getObject("compte_comptable_numero",
-   //             Integer.class)));
-   //     vBean.setCredit(pRS.getBigDecimal("credit"));
-   //     vBean.setDebit(pRS.getBigDecimal("debit"));
-   //     vBean.setLibelle(pRS.getString("libelle"));
-//
-   //     return vBean;
-   // }
 }
