@@ -71,4 +71,22 @@ public class ComptabiliteManagerImplTest {
         manager.checkEcritureComptableUnit(vEcritureComptable);
     }
 
+
+    @Test(expected = FunctionalException.class)
+    public void RG_5_formatCorrect() throws FunctionalException {
+
+        // instances à tester
+        JournalComptable jc1 = new JournalComptable("AC", "Achat");
+        JournalComptable jc2 = new JournalComptable("VE", "Vente");
+
+        EcritureComptable ec1 = new EcritureComptable(1, jc1, "AC-2016/00001", new Date(), "Cartouches d’imprimante");
+        EcritureComptable ec2 = new EcritureComptable(2, jc2, "RE-2018/00002", new Date(), "TMA Appli Xxx");
+
+        manager.RG_5_formatCorrect(ec1);
+        manager.RG_5_formatCorrect(ec2);
+
+
+    }
+
+
 }

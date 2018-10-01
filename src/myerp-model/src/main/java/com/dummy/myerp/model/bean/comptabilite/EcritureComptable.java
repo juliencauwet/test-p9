@@ -39,6 +39,18 @@ public class EcritureComptable {
     @Size(min = 2)
     private final List<LigneEcritureComptable> listLigneEcriture = new ArrayList<>();
 
+    public EcritureComptable() {
+
+    }
+
+    public EcritureComptable(int id, JournalComptable journalComptable, String reference, Date date, String libelle) {
+        this.id = id;
+        this.journal = journalComptable;
+        this.reference = reference;
+        this.date = date;
+        this.libelle = libelle;
+    }
+
 
     // ==================== Getters/Setters ====================
     public Integer getId() {

@@ -120,8 +120,9 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
         // ===== RG_Compta_3 : une écriture comptable doit avoir au moins 2 lignes d'écriture (1 au débit, 1 au crédit)
         RG_3_auMoins2Lignes(pEcritureComptable);
 
-        // TODO ===== RG_Compta_5 : Format et contenu de la référence
+        // TODO ===== RG_Compta_5 : Format et contenu de la référence - DONE: implémenté et testé
         // vérifier que l'année dans la référence correspond bien à la date de l'écriture, idem pour le code journal...
+        RG_5_formatCorrect(pEcritureComptable);
     }
 
 
@@ -226,5 +227,20 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
             throw new FunctionalException(
                     "L'écriture comptable doit avoir au moins deux lignes : une ligne au débit et une ligne au crédit.");
         }
+    }
+
+    protected void RG_5_formatCorrect(EcritureComptable pEcritureComptable) throws FunctionalException {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(pEcritureComptable.getDate());
+
+        System.out.println(pEcritureComptable.getReference().substring(0,2));
+        System.out.println(pEcritureComptable.getJournal().getCode());
+        System.out.println(pEcritureComptable.getReference().substring(0,2).equals(pEcritureComptable.getJournal().getCode()));
+
+        //teste si l'année de ref correspond à l'année de l'écriture
+        if (!Integer.toString(cal.get(Calendar.YEAR)).equals(pEcritureComptable.getReference().substring(3,7)))
+            throw new FunctionalException("L'année de l'écriture diffère de l'année de référence.");
+        if (!pEcritureComptable.getReference().substring(0,2).equals(pEcritureComptable.getJournal().getCode()))
+            throw new FunctionalException("Le code journal de référence diffère du code du journal");
     }
 }
