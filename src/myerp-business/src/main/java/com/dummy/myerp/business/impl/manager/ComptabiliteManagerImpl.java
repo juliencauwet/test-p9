@@ -73,6 +73,7 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 
 
 
+
         /*
                 2.  * S'il n'y a aucun enregistrement pour le journal pour l'année concernée :
                         1. Utiliser le numéro 1.
