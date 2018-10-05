@@ -274,13 +274,14 @@ public class ComptabiliteDaoImpl extends AbstractDbConsumer implements Comptabil
         SQLgetSequenceEcritureComptableByYearAndCode = pSQLgetSequenceEcritureComptableByYearAndCode;
     }
     @Override
-    public List<SequenceEcritureComptable> getSQLgetSequenceEcritureComptableByYearAndCode(String code, int annee) throws NotFoundException {
+    public List<SequenceEcritureComptable> getSQLgetSequenceEcritureComptableByYearAndCode(String code, String annee) throws NotFoundException {
         NamedParameterJdbcTemplate vJdbcTemplate = new NamedParameterJdbcTemplate(getDataSource(DataSourcesEnum.MYERP));
         MapSqlParameterSource vSqlParams = new MapSqlParameterSource();
         vSqlParams.addValue("annee", annee);
         vSqlParams.addValue("journal_code", code);
         SequenceEcritureComptableRM vRM = new SequenceEcritureComptableRM();
         List<SequenceEcritureComptable> vBean;
+
         try {
             vBean = vJdbcTemplate.query(SQLgetSequenceEcritureComptableByYearAndCode, vSqlParams, vRM);
         } catch (EmptyResultDataAccessException vEx) {
@@ -298,7 +299,7 @@ public class ComptabiliteDaoImpl extends AbstractDbConsumer implements Comptabil
  //  }
 
 
-    
+
 
 
 }
