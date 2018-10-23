@@ -1,18 +1,42 @@
 package com.dummy.myerp.business.impl.manager;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
+import com.dummy.myerp.consumer.dao.contrat.ComptabiliteDao;
+import com.dummy.myerp.consumer.dao.contrat.DaoProxy;
 import com.dummy.myerp.model.bean.comptabilite.*;
 import com.dummy.myerp.model.bean.fixtures.Fixtures;
+import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import com.dummy.myerp.technical.exception.FunctionalException;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
 public class ComptabiliteManagerImplTest {
 
-    private ComptabiliteManagerImpl manager = new ComptabiliteManagerImpl();
+    //private ComptabiliteManagerImpl manager = new ComptabiliteManagerImpl();
+
+
+    @Before
+    public void setUp() {  MockitoAnnotations.initMocks(this);  }
+
+    @Mock
+    DaoProxy daoProxy;
+
+    @Mock
+    ComptabiliteDao comptabiliteDao;
+
+    @InjectMocks
+    ComptabiliteManagerImpl manager;
 
     CompteComptable cc1 = new CompteComptable(401,	"Fournisseurs"	);
     CompteComptable cc2 = new CompteComptable(411,	"Clients"	);
@@ -61,21 +85,21 @@ public class ComptabiliteManagerImplTest {
     @Autowired
     Fixtures fixtures;
 
- //   @Test
- //   public void checkEcritureComptableUnit() throws Exception {
- //       EcritureComptable vEcritureComptable;
- //       vEcritureComptable = new EcritureComptable();
- //       vEcritureComptable.setJournal(new JournalComptable("AC", "Achat"));
- //       vEcritureComptable.setDate(new Date());
- //       vEcritureComptable.setLibelle("Libelle");
- //       vEcritureComptable.getListLigneEcriture().add(new LigneEcritureComptable(new CompteComptable(1),
- //                                                                                null, new BigDecimal(123),
- //                                                                                null));
- //       vEcritureComptable.getListLigneEcriture().add(new LigneEcritureComptable(new CompteComptable(2),
- //                                                                                null, null,
- //                                                                                new BigDecimal(123)));
- //       manager.checkEcritureComptableUnit(vEcritureComptable);
- //   }
+    @Test
+    public void checkEcritureComptableUnit() throws Exception {
+        EcritureComptable vEcritureComptable;
+        vEcritureComptable = new EcritureComptable();
+        vEcritureComptable.setJournal(new JournalComptable("AC", "Achat"));
+        vEcritureComptable.setDate(new Date());
+        vEcritureComptable.setLibelle("Libelle");
+        vEcritureComptable.getListLigneEcriture().add(new LigneEcritureComptable(new CompteComptable(1),
+                                                                                 null, new BigDecimal(123),
+                                                                                 null));
+        vEcritureComptable.getListLigneEcriture().add(new LigneEcritureComptable(new CompteComptable(2),
+                                                                                 null, null,
+                                                                                 new BigDecimal(123)));
+        manager.checkEcritureComptableUnit(vEcritureComptable);
+    }
 
     @Test(expected = FunctionalException.class)
     public void checkEcritureComptableUnitViolation() throws Exception {
@@ -146,5 +170,18 @@ public class ComptabiliteManagerImplTest {
     }
 
 
+    @Test
+    public void getListCompteComptable() {
 
+
+        Mockito.when(manager.getListCompteComptable()).thenReturn(new ArrayList<>(Arrays.asList(cc1, cc2, cc3)));
+
+
+
+        List<CompteComptable> list = new ArrayList<>();
+        list = manager.getListCompteComptable();
+
+        Assert.assertEquals(3, list.size());
+
+    }
 }
