@@ -2,10 +2,12 @@ package com.dummy.myerp.consumer.db;
 
 import java.util.HashMap;
 import java.util.Map;
+import javax.annotation.Resource;
 import javax.sql.DataSource;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import com.dummy.myerp.consumer.ConsumerHelper;
 import com.dummy.myerp.consumer.dao.contrat.DaoProxy;
@@ -21,8 +23,12 @@ public abstract class AbstractDbConsumer {
     private static final Logger LOGGER = LogManager.getLogger(AbstractDbConsumer.class);
 
 
+
+
     /** Map des DataSources */
     private static Map<DataSourcesEnum, DataSource> mapDataSource;
+
+
 
 
     // ==================== Constructeurs ====================
@@ -33,6 +39,8 @@ public abstract class AbstractDbConsumer {
     protected AbstractDbConsumer() {
         super();
     }
+
+
 
 
     // ==================== Getters/Setters ====================
@@ -53,13 +61,14 @@ public abstract class AbstractDbConsumer {
      * @param pDataSourceId -
      * @return SimpleJdbcTemplate
      */
-    protected DataSource getDataSource(DataSourcesEnum pDataSourceId) {
-        DataSource vRetour = this.mapDataSource.get(pDataSourceId);
-        if (vRetour == null) {
-            throw new UnsatisfiedLinkError("La DataSource suivante n'a pas été initialisée : " + pDataSourceId);
+      protected DataSource getDataSource(DataSourcesEnum pDataSourceId){
+
+         DataSource vRetour = this.mapDataSource.get(pDataSourceId);
+         if (vRetour == null) {
+           throw new UnsatisfiedLinkError("La DataSource suivante n'a pas été initialisée : " + pDataSourceId);
         }
         return vRetour;
-    }
+      }
 
 
     /**

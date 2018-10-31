@@ -25,7 +25,6 @@ public class ComptabiliteManagerImplTest {
 
     //private ComptabiliteManagerImpl manager = new ComptabiliteManagerImpl();
 
-
     @Before
     public void setUp() {  MockitoAnnotations.initMocks(this);  }
 
@@ -173,10 +172,7 @@ public class ComptabiliteManagerImplTest {
     @Test
     public void getListCompteComptable() {
 
-
         Mockito.when(manager.getListCompteComptable()).thenReturn(new ArrayList<>(Arrays.asList(cc1, cc2, cc3)));
-
-
 
         List<CompteComptable> list = new ArrayList<>();
         list = manager.getListCompteComptable();
