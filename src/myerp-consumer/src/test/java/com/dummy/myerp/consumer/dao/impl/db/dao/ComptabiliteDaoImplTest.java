@@ -1,9 +1,11 @@
 package com.dummy.myerp.consumer.dao.impl.db.dao;
 
-import com.dummy.myerp.configuration.TestDbConfig;
 import com.dummy.myerp.consumer.db.AbstractDbConsumer;
 import com.dummy.myerp.consumer.db.DataSourcesEnum;
 import com.dummy.myerp.model.bean.comptabilite.CompteComptable;
+import com.dummy.myerp.model.bean.comptabilite.EcritureComptable;
+import com.dummy.myerp.model.bean.comptabilite.JournalComptable;
+import com.dummy.myerp.technical.exception.NotFoundException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,34 +28,36 @@ public class ComptabiliteDaoImplTest {
 
     @Autowired
     ApplicationContext applicationContext;
-
     Map<DataSourcesEnum, DataSource> mds = new HashMap<>();
 
     @Before
     public void beforeTest(){
         DataSource dataSource = (DataSource) applicationContext.getBean("dataSource");
         mds.put(DataSourcesEnum.MYERP, dataSource);
+        AbstractDbConsumer.configure(mds);
     }
 
     @Test
     public void checkListCompteComptableSize() {
-
-        AbstractDbConsumer.configure(mds);
         List<CompteComptable> ccs = comptabiliteDao.getListCompteComptable();
-
         Assert.assertEquals(7, ccs.size());
     }
 
     @Test
-    public void getListJournalComptable() {
+    public void getListJournalComptableTest() {
+        List<JournalComptable> jcs = comptabiliteDao.getListJournalComptable();
+        Assert.assertEquals(4, jcs.size());
     }
 
     @Test
-    public void getListEcritureComptable() {
+    public void getListEcritureComptableTest() {
+        List<EcritureComptable> ecs = comptabiliteDao.getListEcritureComptable();
+        Assert.assertEquals(5, ecs.size());
     }
 
     @Test
-    public void getEcritureComptable() {
+    public void getEcritureComptableTest() throws NotFoundException {
+        EcritureComptable ec = comptabiliteDao.getEcritureComptable(2);
     }
 
     @Test
