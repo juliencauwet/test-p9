@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import javax.annotation.Generated;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -37,7 +38,7 @@ public class EcritureComptable {
     /** La liste des lignes d'écriture comptable. */
     @Valid
     @Size(min = 2)
-    private final List<LigneEcritureComptable> listLigneEcriture = new ArrayList<>();
+    private List<LigneEcritureComptable> listLigneEcriture = new ArrayList<>();
 
     public EcritureComptable() {
 
@@ -85,6 +86,9 @@ public class EcritureComptable {
     }
     public List<LigneEcritureComptable> getListLigneEcriture() {
         return listLigneEcriture;
+    }
+    public void setListLigneEcriture(List<LigneEcritureComptable> listLigneEcriture){
+        this.listLigneEcriture = listLigneEcriture;
     }
 
     /**

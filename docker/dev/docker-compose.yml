@@ -11,10 +11,10 @@ services:
       - POSTGRES_DB=db_myerp
       - POSTGRES_USER=usr_myerp
       - POSTGRES_PASSWORD=myerp
-  compta:
-    image: openjdk:8
-    ports:
-      - "127.0.0.1:8181:8080"
+#  compta:
+ #   image: openjdk:8
+  #  ports:
+   #   - "127.0.0.1:8181:8080"
 #links:
  #     -
 

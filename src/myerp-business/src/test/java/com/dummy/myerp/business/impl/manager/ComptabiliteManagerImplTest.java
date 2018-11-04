@@ -140,6 +140,8 @@ public class ComptabiliteManagerImplTest {
     @Test(expected = FunctionalException.class)
     public void RG_5_formatNonCorrect_AnneeRefIncoorecte() throws FunctionalException {
 
+        EcritureComptable ec1 = new EcritureComptable (	1,	jc1,	"AC-2016/00001",	new Date(),	"Cartouches d’imprimante"	);
+
         manager.RG_5_formatCorrect(ec1);
 
     }
@@ -147,11 +149,15 @@ public class ComptabiliteManagerImplTest {
     @Test(expected = FunctionalException.class)
     public void RG_5_formatNonCorrect_CodeJournaIncorrect() throws FunctionalException {
 
+        EcritureComptable ec2 = new EcritureComptable (	2,	jc2,	"BQ-2018/00002",	new Date(),	"TMA Appli Xxx");
+
         manager.RG_5_formatCorrect(ec2);
     }
 
     @Test
     public void RG_5_formatCorrect_ec3() throws FunctionalException {
+
+        EcritureComptable ec3 = new EcritureComptable (	3,	jc3,	"BQ-2018/00003",	new Date(),	"Paiement Facture F110001");
 
         manager.RG_5_formatCorrect(ec3);
     }
@@ -159,6 +165,7 @@ public class ComptabiliteManagerImplTest {
     @Test
     public void RG_5_formatCorrect_ec4() throws FunctionalException {
 
+        EcritureComptable ec4 = new EcritureComptable (	4,	jc2,	"VE-2018/00004",	new Date(),	"TMA Appli Yyy");
         manager.RG_5_formatCorrect(ec4);
     }
 

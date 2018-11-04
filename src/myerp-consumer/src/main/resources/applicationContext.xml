@@ -5,14 +5,14 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                         http://www.springframework.org/schema/beans/spring-beans-4.3.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:property-placeholder location="classpath:/database.properties" />
+    <context:property-placeholder location="classpath:/docker.properties" />
     <context:component-scan base-package="com.dummy.myerp.consumer" />
 
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" >
         <property name="driverClassName" value="${jdbc.driverClassName}" />
         <property name="url" value="${jdbc.url}" />
         <property name="username" value="${jdbc.username}" />
-        <property name="password" value="" />
+        <property name="password" value="${jdbc.password}" />
         <property name="initialSize" value="5" />
     </bean>
 
