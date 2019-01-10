@@ -165,7 +165,7 @@ public class ComptabiliteDaoImplTest {
         Assert.assertEquals(" libelle test update", comptabiliteDao.getEcritureComptable(-3).getLibelle());
     }
 
-    @Test
+    @Test(expected = NotFoundException.class)
     public void deleteEcritureComptable()throws NotFoundException {
         Assert.assertEquals(2, comptabiliteDao.getEcritureComptable(-3).getListLigneEcriture().size());
         comptabiliteDao.deleteEcritureComptable(-3);
@@ -173,6 +173,11 @@ public class ComptabiliteDaoImplTest {
     }
 
     @Test
-    public void deleteListLigneEcritureComptable() {
+    public void deleteListLigneEcritureComptable() throws NotFoundException{
+        List<LigneEcritureComptable> list = comptabiliteDao.getEcritureComptable(-2).getListLigneEcriture();
+
+        comptabiliteDao.deleteListLigneEcritureComptable(-2);
+
+        Assert.assertEquals(comptabiliteDao.getEcritureComptable(-2).getListLigneEcriture().size(), 0);
     }
 }

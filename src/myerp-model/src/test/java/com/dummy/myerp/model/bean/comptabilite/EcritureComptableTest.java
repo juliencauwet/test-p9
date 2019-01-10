@@ -69,13 +69,21 @@ public class EcritureComptableTest {
           }
 
     @Test
-    public void getTotalDebit() {
+    public void getTotalDebitTest() {
+        EcritureComptable ecritureComptable = new EcritureComptable();
 
+        ecritureComptable.getListLigneEcriture().add(lec1);
+        ecritureComptable.getListLigneEcriture().add(lec2);
+        ecritureComptable.getListLigneEcriture().add(lec3);
+        ecritureComptable.getListLigneEcriture().add(lec4);
+        ecritureComptable.getListLigneEcriture().add(lec5);
+
+        Assert.assertEquals(new BigDecimal(3052.74), ecritureComptable.getTotalDebit());
 
     }
 
     @Test
-    public void getTotalCredit() {
+    public void getTotalCreditTest() {
 
 
     }
