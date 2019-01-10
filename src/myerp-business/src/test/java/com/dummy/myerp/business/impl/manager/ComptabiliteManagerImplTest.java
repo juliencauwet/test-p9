@@ -8,34 +8,43 @@ import java.util.List;
 
 import com.dummy.myerp.consumer.dao.contrat.ComptabiliteDao;
 import com.dummy.myerp.consumer.dao.contrat.DaoProxy;
+import com.dummy.myerp.consumer.dao.impl.DaoProxyImpl;
+import com.dummy.myerp.consumer.dao.impl.db.dao.ComptabiliteDaoImpl;
 import com.dummy.myerp.model.bean.comptabilite.*;
 import com.dummy.myerp.model.bean.fixtures.Fixtures;
+import com.dummy.myerp.technical.exception.NotFoundException;
+import com.dummy.myerp.technical.exception.TechnicalException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import com.dummy.myerp.technical.exception.FunctionalException;
+import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 
-
+@RunWith(MockitoJUnitRunner.class)
 public class ComptabiliteManagerImplTest {
 
-    //private ComptabiliteManagerImpl manager = new ComptabiliteManagerImpl();
+    private ComptabiliteManagerImpl manager = new ComptabiliteManagerImpl();
 
     @Before
-    public void setUp() {  MockitoAnnotations.initMocks(this);  }
-
-    @Mock
-    DaoProxy daoProxy;
-
-    @Mock
-    ComptabiliteDao comptabiliteDao;
+    public void setUp() {  MockitoAnnotations.initMocks(this); }
 
     @InjectMocks
-    ComptabiliteManagerImpl manager;
+    DaoProxyImpl daoProxy;
+
+    @Mock
+    ComptabiliteDaoImpl comptabiliteDao;
+
+  //  @Mock
+  //  DaoProxyImpl daoProxymMck;
+
+   // @InjectMocks
+   // ComptabiliteManagerImpl manager;
 
     CompteComptable cc1 = new CompteComptable(401,	"Fournisseurs"	);
     CompteComptable cc2 = new CompteComptable(411,	"Clients"	);
@@ -81,8 +90,6 @@ public class ComptabiliteManagerImplTest {
     EcritureComptable ec5 = new EcritureComptable (	5,	jc4,	"OD-2018/00005",	new Date(),	"Paiement Facture C110002");
     EcritureComptable ec6 = new EcritureComptable ( 6,  jc5,    "TE-2018/00006",   new Date(), "ec test");
 
-    @Autowired
-    Fixtures fixtures;
 
     @Test
     public void checkEcritureComptableUnit() throws Exception {
@@ -179,12 +186,19 @@ public class ComptabiliteManagerImplTest {
     @Test
     public void getListCompteComptable() {
 
-        Mockito.when(manager.getListCompteComptable()).thenReturn(new ArrayList<>(Arrays.asList(cc1, cc2, cc3)));
 
-        List<CompteComptable> list = new ArrayList<>();
-        list = manager.getListCompteComptable();
+        Mockito.when(comptabiliteDao.getListCompteComptable()).thenReturn(new ArrayList<>(Arrays.asList(cc1, cc2, cc3)));
+
+        List<CompteComptable> list = comptabiliteDao.getListCompteComptable();
 
         Assert.assertEquals(3, list.size());
+
+    }
+
+    @Test
+    public void addReferenceTestEc1() throws TechnicalException, NotFoundException, FunctionalException {
+        manager.addReference(ec1);
+        Assert.assertEquals("AC-2016/00001", ec1.getReference());
 
     }
 }

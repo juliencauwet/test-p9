@@ -76,5 +76,7 @@ public class EcritureComptableTest {
 
     @Test
     public void getTotalCredit() {
+
+
     }
 }

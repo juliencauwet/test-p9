@@ -11,10 +11,10 @@ services:
       - POSTGRES_DB=db_myerp
       - POSTGRES_USER=usr_myerp
       - POSTGRES_PASSWORD=myerp
-#  compta:
- #   image: openjdk:8
-  #  ports:
-   #   - "127.0.0.1:8181:8080"
+  compta:
+    image: openjdk:8
+    ports:
+      - "127.0.0.1:8181:8080"
 #links:
  #     -
 
@@ -24,6 +24,33 @@ services:
   #  image: openjdk:8
    # ports:
     #  - "127.0.0.1:8181:8080"
-
+# gitlab:
+#     image: gitlab:7.10.0
+#     ports:
+#     - "0.0.0.0:4430:443"
+#     - "0.0.0.0:10022:22"
+#     environment:
+#     - GITLAB_BACKUPS=daily
+#     - GITLAB_HOST=gitlab.myhost.com
+#     - VIRTUAL_HOST=gitlab.myhost.com
+#     - MAX_UPLOAD_SIZE=512m
+#     - GITLAB_HTTPS=true
+#     - GITLAB_SSH_PORT=10022
+#     - SSL_CERTIFICATE_PATH=/home/git/data/certs/gitlab.crt
+#     - SSL_KEY_PATH=/home/git/data/certs/gitlab.key
+#     - SSL_DHPARAM_PATH=/home/git/data/certs/dhparam.pem
+#     - SSL_SELF_SIGNED=true
+#     - GITLAB_PORT=443
+#     - SMTP_ENABLED=true
+#     - SMTP_USER=mygmail@gmail.com
+#     - SMTP_PASS=mygmailpassword
+#     - DB_USER=gitlab
+#     - DB_PASS=mydbpassword
+#     - DB_NAME=gitlabhq_production
+#     volumes:
+#     - /home/docker/gitlab/data:/home/git/data
+#     links:
+#     - redis:redisio
+#     - postgresql:postgresql
 
 

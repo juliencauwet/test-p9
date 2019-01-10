@@ -11,6 +11,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
@@ -27,6 +28,21 @@ import java.util.*;
 public class ComptabiliteDaoImplTest {
 
     ComptabiliteDaoImpl comptabiliteDao = new ComptabiliteDaoImpl();
+
+    @Mock
+    CompteComptable compteComptable;
+
+    @Mock
+    EcritureComptable ecritureComptable1;
+
+    @Mock
+    EcritureComptable ecritureComptable2;
+
+    @Mock
+    JournalComptable journalComptable;
+
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
 
     @Autowired
     ApplicationContext applicationContext;
@@ -59,22 +75,25 @@ public class ComptabiliteDaoImplTest {
 
     @Test
     public void getEcritureComptableTest() throws NotFoundException, ParseException {
-        //INSERT INTO MYERP.ecriture_comptable (id,journal_code,reference,date,libelle) VALUES (	-2,	'VE',	'VE-2016/00002',	'2016-12-30',	'TMA Appli Xxx'	);
-        SimpleDateFormat sdf = new SimpleDateFormat("yyy-MM-dd");
+
+        EcritureComptable ec = comptabiliteDao.getEcritureComptable(-2);
+        Date d = ec.getDate();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String ds = sdf.format(d);
+        ec.setDate(sdf.parse(ds));
 
         CompteComptable cc2 = new CompteComptable(411,	"Clients"	);
         CompteComptable cc4 = new CompteComptable(706,"Prestations de services"	);
         CompteComptable cc5 = new CompteComptable(4457,	"Taxes sur le chiffre d'affaires collectées par l'entreprise"	);
 
         EcritureComptable ec2 = new EcritureComptable (	-2,	new JournalComptable (	"VE",	"Vente"	),	"VE-2016/00002", sdf.parse("2016-12-30"),	"TMA Appli Xxx");
-
+        ec2.setDate(sdf.parse(sdf.format(ec2.getDate())));
         ec2.setListLigneEcriture(Arrays.asList(
                 new LigneEcritureComptable (	cc2,"Facture C110002",	new BigDecimal(3000.00),	null	),
                 new LigneEcritureComptable (	cc4,"TMA Appli Xxx",	null,	new BigDecimal(2500.00)	),
                 new LigneEcritureComptable (	cc5,"TVA 20%",	null,	new BigDecimal(500.00)	)
         ));
 
-        EcritureComptable ec = comptabiliteDao.getEcritureComptable(-2);
         Assert.assertEquals(ec2, ec);
     }
 
@@ -105,19 +124,52 @@ public class ComptabiliteDaoImplTest {
     }
 
     @Test
-    public void insertEcritureComptable() {
+    public void insertEcritureComptable() throws ParseException{
+
+
+
+        CompteComptable cc2 = new CompteComptable(411,	"Clients"	);
+        CompteComptable cc4 = new CompteComptable(706,"Prestations de services"	);
+        CompteComptable cc5 = new CompteComptable(4457,	"Taxes sur le chiffre d'affaires collectées par l'entreprise"	);
+
+        EcritureComptable ec2 = new EcritureComptable (	-2,	new JournalComptable (	"VE",	"Vente"	),	"VE-2016/00002", sdf.parse("2016-12-30"),	"TMA Appli Xxx");
+        ec2.setListLigneEcriture(Arrays.asList(
+                new LigneEcritureComptable (	cc2,"Facture C110002",	new BigDecimal(3000.00),	null	),
+                new LigneEcritureComptable (	cc4,"TMA Appli Xxx",	null,	new BigDecimal(2500.00)	),
+                new LigneEcritureComptable (	cc5,"TVA 20%",	null,	new BigDecimal(500.00)	)
+        ));
+
+        comptabiliteDao.insertEcritureComptable(ec2);
     }
 
     @Test
-    public void insertListLigneEcritureComptable() {
+    public void insertListLigneEcritureComptable() throws ParseException{
+        LigneEcritureComptable lec1 = new LigneEcritureComptable (	compteComptable,"Cartouches d’imprimante", new BigDecimal(43.95),	null	);
+        LigneEcritureComptable lec2 = new LigneEcritureComptable (	compteComptable,"TVA 20%",	new BigDecimal(8.79),	null	);
+        LigneEcritureComptable lec3 = new LigneEcritureComptable (	compteComptable,"Facture F110001",	null,	new BigDecimal(52.74)	);
+
+        List<LigneEcritureComptable> ecritures = Arrays.asList(lec1, lec2, lec3);
+
+        EcritureComptable ec = new EcritureComptable(12, journalComptable, "VE-2017/00003", sdf.parse("2017-04-22"),"test");
+        ec.setListLigneEcriture(ecritures);
+
+        comptabiliteDao.insertListLigneEcritureComptable(ec);
     }
 
     @Test
-    public void updateEcritureComptable() {
+    public void updateEcritureComptable() throws NotFoundException{
+        EcritureComptable ecritureComptable = comptabiliteDao.getEcritureComptable(-3);
+        ecritureComptable.setLibelle(" libelle test update");
+        comptabiliteDao.updateEcritureComptable(ecritureComptable);
+
+        Assert.assertEquals(" libelle test update", comptabiliteDao.getEcritureComptable(-3).getLibelle());
     }
 
     @Test
-    public void deleteEcritureComptable() {
+    public void deleteEcritureComptable()throws NotFoundException {
+        Assert.assertEquals(2, comptabiliteDao.getEcritureComptable(-3).getListLigneEcriture().size());
+        comptabiliteDao.deleteEcritureComptable(-3);
+        comptabiliteDao.getEcritureComptable(-3);
     }
 
     @Test

@@ -8,6 +8,8 @@ import java.util.Set;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 
+import com.dummy.myerp.consumer.dao.contrat.ComptabiliteDao;
+import com.dummy.myerp.consumer.dao.contrat.DaoProxy;
 import com.dummy.myerp.model.bean.comptabilite.*;
 import com.dummy.myerp.model.bean.fixtures.Fixtures;
 import com.dummy.myerp.technical.exception.TechnicalException;
@@ -28,8 +30,6 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 
     // ==================== Attributs ====================
 
-    @Autowired
-    Fixtures fixtures;
 
     // ==================== Constructeurs ====================
     /**
@@ -78,7 +78,13 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
        String annee = Integer.toString(cal.get(Calendar.YEAR));
 
        try {
+           //DaoProxy daoProxy = getDaoProxy();
+           //ComptabiliteDao comptabiliteDao = daoProxy.getComptabiliteDao();
+           //List<SequenceEcritureComptable> seqs = comptabiliteDao.getSQLgetSequenceEcritureComptableByYearAndCode(annee, code);
            List<SequenceEcritureComptable> seqs = getDaoProxy().getComptabiliteDao().getSQLgetSequenceEcritureComptableByYearAndCode(annee, code);
+
+
+
            for (int i = 0; i < seqs.size(); i++){
                if (seqs.get(i).getDerniereValeur() > derniereValeur){
                    derniereValeur = seqs.get(i).getDerniereValeur();
