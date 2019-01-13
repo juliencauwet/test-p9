@@ -40,11 +40,6 @@ public class ComptabiliteManagerImplTest {
     @Mock
     ComptabiliteDaoImpl comptabiliteDao;
 
-  //  @Mock
-  //  DaoProxyImpl daoProxymMck;
-
-   // @InjectMocks
-   // ComptabiliteManagerImpl manager;
 
     CompteComptable cc1 = new CompteComptable(401,	"Fournisseurs"	);
     CompteComptable cc2 = new CompteComptable(411,	"Clients"	);
@@ -197,8 +192,18 @@ public class ComptabiliteManagerImplTest {
 
     @Test
     public void addReferenceTestEc1() throws TechnicalException, NotFoundException, FunctionalException {
-        manager.addReference(ec1);
-        Assert.assertEquals("AC-2016/00001", ec1.getReference());
+
+        EcritureComptable ec = new EcritureComptable();
+
+        Mockito.when(comptabiliteDao.getEcritureComptable(ec.getId())).thenReturn(ec1);
+
+
+        ec.setDate(new Date());
+        ec.setLibelle("test");
+        ec.setJournal(jc2);
+
+        manager.addReference(ec);
+        Assert.assertEquals("AC-2016/00001", ec.getReference());
 
     }
 }
