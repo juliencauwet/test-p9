@@ -87,15 +87,15 @@ public class ComptabiliteDaoImplTest {
 
     }
 
-    @Test
-    public void loadListLigneEcriture() throws NotFoundException{
-
-        List<LigneEcritureComptable> list = Arrays.asList(lec1, lec2, lec3);
-
-        comptabiliteDao.loadListLigneEcriture(comptabiliteDao.getEcritureComptable(-1));
-
-        Assert.assertEquals(list, comptabiliteDao.getEcritureComptable(-1).getListLigneEcriture());
-    }
+ //   @Test
+ //   public void loadListLigneEcriture() throws NotFoundException{
+//
+ //       List<LigneEcritureComptable> list = Arrays.asList(lec1, lec2, lec3);
+//
+ //       comptabiliteDao.loadListLigneEcriture(comptabiliteDao.getEcritureComptable(-1));
+//
+ //       Assert.assertEquals(list, comptabiliteDao.getEcritureComptable(-1).getListLigneEcriture());
+ //   }
 
     @Test
     public void insertEcritureComptable() throws ParseException, NotFoundException{
