@@ -18,7 +18,7 @@ before_install:
   - ls -al
 
 before_script:
-  - cd src
+  - cd ../../src
 
 script:
   - mvn test -Ptest-consumer,test-business
