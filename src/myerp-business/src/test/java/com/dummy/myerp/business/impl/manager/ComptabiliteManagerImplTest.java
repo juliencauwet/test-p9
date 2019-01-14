@@ -1,6 +1,7 @@
 package com.dummy.myerp.business.impl.manager;
 
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -10,12 +11,15 @@ import com.dummy.myerp.consumer.dao.contrat.ComptabiliteDao;
 import com.dummy.myerp.consumer.dao.contrat.DaoProxy;
 import com.dummy.myerp.consumer.dao.impl.DaoProxyImpl;
 import com.dummy.myerp.consumer.dao.impl.db.dao.ComptabiliteDaoImpl;
+import com.dummy.myerp.consumer.dao.impl.db.dao.ComptabiliteDaoMock;
+import com.dummy.myerp.consumer.dao.impl.db.dao.DaoProxyMock;
 import com.dummy.myerp.model.bean.comptabilite.*;
 import com.dummy.myerp.model.bean.fixtures.Fixtures;
 import com.dummy.myerp.technical.exception.NotFoundException;
 import com.dummy.myerp.technical.exception.TechnicalException;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import com.dummy.myerp.technical.exception.FunctionalException;
 import org.junit.runner.RunWith;
@@ -26,17 +30,29 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import static com.dummy.myerp.consumer.ConsumerHelper.getDaoProxy;
+import static org.mockito.Mockito.when;
+
 @RunWith(MockitoJUnitRunner.class)
 public class ComptabiliteManagerImplTest {
 
     private ComptabiliteManagerImpl manager = new ComptabiliteManagerImpl();
+    private EcritureComptable vEcritureComptable;
+    private static SimpleDateFormat dateFormat;
 
-    @Before
-    public void setUp() {  MockitoAnnotations.initMocks(this); }
+    @BeforeClass
+   public static void setUp() {
+       ComptabiliteDao comptabiliteDao=Mockito.mock(ComptabiliteDao.class);
+       DaoProxy daoProxy = new DaoProxyMock(comptabiliteDao);
+       ComptabiliteDaoMock comptabiliteDaoMock=new ComptabiliteDaoMock();
+       ComptabiliteManagerImpl.configure(null, daoProxy, null);
+       //when(daoProxy.getComptabiliteDao().getListEcritureComptable()).thenReturn(comptabiliteDaoMock.getListEcritureComptable());
+       dateFormat = new SimpleDateFormat("yyyy");
+   }
 
-    @InjectMocks
-    DaoProxyImpl daoProxy;
-
+   // @InjectMocks
+   // DaoProxyImpl daoProxy;
+//
     @Mock
     ComptabiliteDaoImpl comptabiliteDao;
 
@@ -82,7 +98,7 @@ public class ComptabiliteManagerImplTest {
     EcritureComptable ec2 = new EcritureComptable (	2,	jc2,	"BQ-2018/00002",	new Date(),	"TMA Appli Xxx");
     EcritureComptable ec3 = new EcritureComptable (	3,	jc3,	"BQ-2018/00003",	new Date(),	"Paiement Facture F110001");
     EcritureComptable ec4 = new EcritureComptable (	4,	jc2,	"VE-2018/00004",	new Date(),	"TMA Appli Yyy");
-    EcritureComptable ec5 = new EcritureComptable (	5,	jc4,	"OD-2018/00005",	new Date(),	"Paiement Facture C110002");
+    EcritureComptable ec5 = new EcritureComptable (	5,	jc4,	"OD-2019/00005",	new Date(),	"Paiement Facture C110002");
     EcritureComptable ec6 = new EcritureComptable ( 6,  jc5,    "TE-2018/00006",   new Date(), "ec test");
 
 
@@ -159,7 +175,7 @@ public class ComptabiliteManagerImplTest {
     @Test
     public void RG_5_formatCorrect_ec3() throws FunctionalException {
 
-        EcritureComptable ec3 = new EcritureComptable (	3,	jc3,	"BQ-2018/00003",	new Date(),	"Paiement Facture F110001");
+        EcritureComptable ec3 = new EcritureComptable (	3,	jc3,	"BQ-2019/00003",	new Date(),	"Paiement Facture F110001");
 
         manager.RG_5_formatCorrect(ec3);
     }
@@ -167,7 +183,7 @@ public class ComptabiliteManagerImplTest {
     @Test
     public void RG_5_formatCorrect_ec4() throws FunctionalException {
 
-        EcritureComptable ec4 = new EcritureComptable (	4,	jc2,	"VE-2018/00004",	new Date(),	"TMA Appli Yyy");
+        EcritureComptable ec4 = new EcritureComptable (	4,	jc2,	"VE-2019/00004",	new Date(),	"TMA Appli Yyy");
         manager.RG_5_formatCorrect(ec4);
     }
 
@@ -182,7 +198,7 @@ public class ComptabiliteManagerImplTest {
     public void getListCompteComptable() {
 
 
-        Mockito.when(comptabiliteDao.getListCompteComptable()).thenReturn(new ArrayList<>(Arrays.asList(cc1, cc2, cc3)));
+        when(comptabiliteDao.getListCompteComptable()).thenReturn(new ArrayList<>(Arrays.asList(cc1, cc2, cc3)));
 
         List<CompteComptable> list = comptabiliteDao.getListCompteComptable();
 
@@ -191,11 +207,13 @@ public class ComptabiliteManagerImplTest {
     }
 
     @Test
-    public void addReferenceTestEc1() throws TechnicalException, NotFoundException, FunctionalException {
+    public void addReferenceTest() throws TechnicalException, NotFoundException, FunctionalException {
 
         EcritureComptable ec = new EcritureComptable();
 
-        Mockito.when(comptabiliteDao.getEcritureComptable(ec.getId())).thenReturn(ec1);
+        List<LigneEcritureComptable>list = new ArrayList<>();
+        list.add(lec1);
+        list.add(lec2);
 
 
         ec.setDate(new Date());
@@ -205,5 +223,10 @@ public class ComptabiliteManagerImplTest {
         manager.addReference(ec);
         Assert.assertEquals("AC-2016/00001", ec.getReference());
 
+    }
+
+    @Test
+    public void buildRefTest(){
+        Assert.assertEquals("OD-2019/00005", manager.buildReference(ec5, 4));
     }
 }

@@ -83,8 +83,6 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
            //List<SequenceEcritureComptable> seqs = comptabiliteDao.getSQLgetSequenceEcritureComptableByYearAndCode(annee, code);
            List<SequenceEcritureComptable> seqs = getDaoProxy().getComptabiliteDao().getSQLgetSequenceEcritureComptableByYearAndCode(annee, code);
 
-
-
            for (int i = 0; i < seqs.size(); i++){
                if (seqs.get(i).getDerniereValeur() > derniereValeur){
                    derniereValeur = seqs.get(i).getDerniereValeur();
@@ -94,15 +92,6 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
        }catch (Exception e){
            throw new TechnicalException(" Impossible de se connecter à la base de données ");
        }
-       /*
-        1.
-    Integer vEcritureComptableYear = Integer.parseInt(new SimpleDateFormat("yyyy").format(pEcritureComptable.getDate()));
-    SequenceEcritureComptable vRechercheSequence = new SequenceEcritureComptable();
-        vRechercheSequence.setJournalCode(pEcritureComptable.getJournal().getCode());
-        vRechercheSequence.setAnnee(vEcritureComptableYear);
-    SequenceEcritureComptable vExistingSequence = getDaoProxy().getComptabiliteDao().getSequenceByCodeAndAnneeCourante(vRechercheSequence);
-
-        */
         /*
                 2.  * S'il n'y a aucun enregistrement pour le journal pour l'année concernée :
                         1. Utiliser le numéro 1.
@@ -114,12 +103,6 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
         else {
             derniereValeur += 1;
         }
-        /*
-         2.
-    Integer vNumeroSequence;
-        if (vExistingSequence == null) vNumeroSequence = 1;
-        else vNumeroSequence = vExistingSequence.getDerniereValeur() + 1;
-         */
 
         /*
                 3.  Mettre à jour la référence de l'écriture avec la référence calculée (RG_Compta_5)
@@ -326,5 +309,20 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
             throw new FunctionalException(
                     "Le code journal dans la référence doit correspondre au code du journal en question.");
          */
+    }
+
+    protected String buildReference(EcritureComptable ec, int derniereValeur){
+        String ref = "";
+
+        String code = ec.getJournal().getCode();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(ec.getDate());
+        String annee = Integer.toString(cal.get(Calendar.YEAR));
+
+        ref = ec.getJournal().getCode() + "-";
+        ref += annee + "/";
+        ref += String.format("%05d", derniereValeur);
+
+        return ref;
     }
 }
