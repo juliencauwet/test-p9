@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8179c5fe-066f-4b3d-a147-ce2a8e5e9fe8" name="Default" comment="commit avec Cesare">
+    <list default="true" id="8179c5fe-066f-4b3d-a147-ce2a8e5e9fe8" name="Default" comment="changed travis">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/src/myerp-consumer/target/" />
     <ignored path="$PROJECT_DIR$/src/myerp-business/target/" />
@@ -122,8 +121,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
+            <state relative-caret-position="255">
+              <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -326,7 +325,7 @@
     <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547494799735" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547495008231" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="PostgreSQL" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
@@ -552,7 +551,7 @@
       <workItem from="1545318882785" duration="3264000" />
       <workItem from="1545489995613" duration="240000" />
       <workItem from="1547124798657" duration="11058000" />
-      <workItem from="1547226511422" duration="30836000" />
+      <workItem from="1547226511422" duration="31072000" />
     </task>
     <task id="LOCAL-00001" summary="1er todo addReference: recherche du code et année de écriture comptable">
       <created>1538324051507</created>
@@ -673,7 +672,14 @@
       <option name="project" value="LOCAL" />
       <updated>1547494254806</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="changed travis">
+      <created>1547494825292</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1547494825292</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -709,7 +715,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="243507000" />
+    <option name="totallyTimeSpent" value="243743000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -783,7 +789,8 @@
     <MESSAGE value="ComptabiliteDaoImplTest 10/11 (loadListLigneEcritureTest to fix)" />
     <MESSAGE value="added DaoProxyMock" />
     <MESSAGE value="commit avec Cesare" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit avec Cesare" />
+    <MESSAGE value="changed travis" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed travis" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1222,8 +1229,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
+        <state relative-caret-position="255">
+          <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
         </state>
       </provider>
     </entry>
