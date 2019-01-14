@@ -14,6 +14,8 @@ before_install:
   - docker-compose rm -f
   - docker-compose up
   - docker ps -a
+  - pwd
+  - ls -al
 
 before_script:
   - cd src
@@ -33,3 +35,4 @@ after_success:
 
 notifications:
   email: false
+
