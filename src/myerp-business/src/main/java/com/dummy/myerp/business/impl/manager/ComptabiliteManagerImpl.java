@@ -1,10 +1,7 @@
 package com.dummy.myerp.business.impl.manager;
 
 import java.math.BigDecimal;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 
@@ -71,22 +68,20 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
                 1.  Remonter depuis la persitance la dernière valeur de la séquence du journal pour l'année de l'écriture
                     (table sequence_ecriture_comptable)
          */
-       int derniereValeur = 0;
-       String code = pEcritureComptable.getJournal().getCode();
-       Calendar cal = Calendar.getInstance();
-       cal.setTime(pEcritureComptable.getDate());
-       String annee = Integer.toString(cal.get(Calendar.YEAR));
+       int valeur = 0; //initialisation de la valeur qui correspond à la dernière valeur de séquence
+
+       String code = pEcritureComptable.getJournal().getCode(); // code du journal de l'écriture
+
+       String annee = getYear(pEcritureComptable.getDate()); // année de la date de l'écriture
 
        try {
-           //DaoProxy daoProxy = getDaoProxy();
-           //ComptabiliteDao comptabiliteDao = daoProxy.getComptabiliteDao();
-           //List<SequenceEcritureComptable> seqs = comptabiliteDao.getSQLgetSequenceEcritureComptableByYearAndCode(annee, code);
-           List<SequenceEcritureComptable> seqs = getDaoProxy().getComptabiliteDao().getSQLgetSequenceEcritureComptableByYearAndCode(annee, code);
+           //recherche de la séquence par l'année et le code journal
+           List<SequenceEcritureComptable> seqs = getDaoProxy().getComptabiliteDao().getSQLgetSequenceEcritureComptableByYearAndCode(annee, Integer.parseInt(annee));
 
            for (int i = 0; i < seqs.size(); i++){
-               if (seqs.get(i).getDerniereValeur() > derniereValeur){
-                   derniereValeur = seqs.get(i).getDerniereValeur();
-                   SequenceEcritureComptable derniereSequence = seqs.get(i);
+               //boucle à travers les séquences celle qui a la valeur la plus haute valeur
+               if (seqs.get(i).getDerniereValeur() > valeur){
+                   valeur = seqs.get(i).getDerniereValeur();
                }
            }
        }catch (Exception e){
@@ -98,35 +93,22 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
                     * Sinon :
                         1. Utiliser la dernière valeur + 1
        */
-        if(derniereValeur == 0)
-                    derniereValeur++;
-        else {
-            derniereValeur += 1;
-        }
+        //si aucune valeur n'a été trouvé alors la séquence sera 1, sinon elle sera incrémentée de 1
+        valeur++;
 
         /*
                 3.  Mettre à jour la référence de l'écriture avec la référence calculée (RG_Compta_5)
          */
-        String newRef = pEcritureComptable.getJournal().getCode() + "-";
-        newRef += annee + "/";
-        newRef += String.format("%05d", derniereValeur);
-        pEcritureComptable.setReference(newRef);
-        updateEcritureComptable(pEcritureComptable);
+        // appelle la méthode pour construire la référence
+        buildReference(annee, code, valeur);
         /*
-        3.
-    String vReference = pEcritureComptable.getJournal().getCode() +
-            "-" + vEcritureComptableYear +
-            "/" + String.format("%05d", vNumeroSequence);
-        pEcritureComptable.setReference(vReference);
-        this.updateEcritureComptable(pEcritureComptable);
-         */
 
         /*
                 4.  Enregistrer (insert/update) la valeur de la séquence en persitance
                     (table sequence_ecriture_comptable)
          */
         SequenceEcritureComptable newSeq = new SequenceEcritureComptable();
-        newSeq.setDerniereValeur(derniereValeur);
+        newSeq.setDerniereValeur(valeur);
         newSeq.setAnnee(Integer.parseInt(annee));
         newSeq.setCode(pEcritureComptable.getJournal().getCode());
 
@@ -311,18 +293,19 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
          */
     }
 
-    protected String buildReference(EcritureComptable ec, int derniereValeur){
+    protected String buildReference(String annee, String code, int valeur){
         String ref = "";
 
-        String code = ec.getJournal().getCode();
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(ec.getDate());
-        String annee = Integer.toString(cal.get(Calendar.YEAR));
-
-        ref = ec.getJournal().getCode() + "-";
+        ref = code + "-";
         ref += annee + "/";
-        ref += String.format("%05d", derniereValeur);
+        ref += String.format("%05d", valeur);
 
         return ref;
+    }
+
+    protected String getYear(Date date){
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        return Integer.toString(cal.get(Calendar.YEAR));
     }
 }

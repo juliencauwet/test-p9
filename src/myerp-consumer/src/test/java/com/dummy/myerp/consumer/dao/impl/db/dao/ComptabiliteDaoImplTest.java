@@ -2,19 +2,13 @@ package com.dummy.myerp.consumer.dao.impl.db.dao;
 
 import com.dummy.myerp.consumer.db.AbstractDbConsumer;
 import com.dummy.myerp.consumer.db.DataSourcesEnum;
-import com.dummy.myerp.model.bean.comptabilite.CompteComptable;
-import com.dummy.myerp.model.bean.comptabilite.EcritureComptable;
-import com.dummy.myerp.model.bean.comptabilite.JournalComptable;
-import com.dummy.myerp.model.bean.comptabilite.LigneEcritureComptable;
+import com.dummy.myerp.model.bean.comptabilite.*;
 import com.dummy.myerp.technical.exception.NotFoundException;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
@@ -87,16 +81,6 @@ public class ComptabiliteDaoImplTest {
 
     }
 
- //   @Test
- //   public void loadListLigneEcriture() throws NotFoundException{
-//
- //       List<LigneEcritureComptable> list = Arrays.asList(lec1, lec2, lec3);
-//
- //       comptabiliteDao.loadListLigneEcriture(comptabiliteDao.getEcritureComptable(-1));
-//
- //       Assert.assertEquals(list, comptabiliteDao.getEcritureComptable(-1).getListLigneEcriture());
- //   }
-
     @Test
     public void insertEcritureComptable() throws ParseException, NotFoundException{
 
@@ -152,6 +136,12 @@ public class ComptabiliteDaoImplTest {
         List<LigneEcritureComptable> list = comptabiliteDao.getEcritureComptable(-2).getListLigneEcriture();
         comptabiliteDao.deleteListLigneEcritureComptable(-2);
         Assert.assertEquals(comptabiliteDao.getEcritureComptable(-2).getListLigneEcriture().size(), 0);
+    }
+
+    @Test
+    public  void getSQLgetSequenceEcritureComptableByYearAndCodeTest()throws  NotFoundException{
+        List<SequenceEcritureComptable>sec = comptabiliteDao.getSQLgetSequenceEcritureComptableByYearAndCode("AC", 2016);
+        Assert.assertEquals(1 ,sec.size() );
     }
 
     @After

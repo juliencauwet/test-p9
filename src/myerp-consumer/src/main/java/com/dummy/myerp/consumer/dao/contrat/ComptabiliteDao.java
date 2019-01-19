@@ -83,7 +83,7 @@ public interface ComptabiliteDao {
     void deleteEcritureComptable(Integer pId);
 
 
-    List<SequenceEcritureComptable> getSQLgetSequenceEcritureComptableByYearAndCode(String code, String year) throws NotFoundException;
+    List<SequenceEcritureComptable> getSQLgetSequenceEcritureComptableByYearAndCode(String code, int year) throws NotFoundException;
 
     //void loadListSequenceEcritureComptable(String code, int annee);
 }

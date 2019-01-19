@@ -197,36 +197,15 @@ public class ComptabiliteManagerImplTest {
     @Test
     public void getListCompteComptable() {
 
-
         when(comptabiliteDao.getListCompteComptable()).thenReturn(new ArrayList<>(Arrays.asList(cc1, cc2, cc3)));
-
         List<CompteComptable> list = comptabiliteDao.getListCompteComptable();
-
         Assert.assertEquals(3, list.size());
 
     }
 
-  //  @Test
-  //  public void addReferenceTest() throws TechnicalException, NotFoundException, FunctionalException {
-//
-  //      EcritureComptable ec = new EcritureComptable();
-//
-  //      List<LigneEcritureComptable>list = new ArrayList<>();
-  //      list.add(lec1);
-  //      list.add(lec2);
-//
-//
-  //      ec.setDate(new Date());
-  //      ec.setLibelle("test");
-  //      ec.setJournal(jc2);
-//
-  //      manager.addReference(ec);
-  //      Assert.assertEquals("AC-2016/00001", ec.getReference());
-//
-  //  }
-//
     @Test
     public void buildRefTest(){
-        Assert.assertEquals("OD-2019/00004", manager.buildReference(ec5, 4));
+        Assert.assertEquals("OD-2019/00004", manager.buildReference(manager.getYear(ec5.getDate()), ec5.getJournal().getCode(), 4));
     }
+
 }
