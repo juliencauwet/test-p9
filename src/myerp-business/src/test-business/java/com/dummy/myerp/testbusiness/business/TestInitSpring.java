@@ -12,7 +12,7 @@ import static org.junit.Assert.assertNotNull;
  * Classe de test de l'initialisation du contexte Spring
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:applicationContext.xml"})
+@ContextConfiguration(locations = {"classpath:com/dummy/myerp/business/applicationContext.xml"})
 public class TestInitSpring extends BusinessTestCase {
 
     /**
@@ -29,8 +29,8 @@ public class TestInitSpring extends BusinessTestCase {
     //TODO: réaliser ce test
     @Test
     public void testInit() {
-   //     SpringRegistry.init();
-   //     assertNotNull(SpringRegistry.getBusinessProxy());
-   //     assertNotNull(SpringRegistry.getTransactionManager());
+        SpringRegistry.init();
+        assertNotNull(SpringRegistry.getBusinessProxy());
+        assertNotNull(SpringRegistry.getTransactionManager());
     }
 }
