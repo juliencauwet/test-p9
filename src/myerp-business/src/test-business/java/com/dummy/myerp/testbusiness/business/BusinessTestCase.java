@@ -8,6 +8,8 @@ import com.dummy.myerp.business.impl.TransactionManager;
 /**
  * Classe mère des classes de test d'intégration de la couche Business
  */
+
+
 public abstract class BusinessTestCase {
 
     static {
