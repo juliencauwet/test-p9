@@ -9,28 +9,18 @@ import java.util.List;
 
 import com.dummy.myerp.consumer.dao.contrat.ComptabiliteDao;
 import com.dummy.myerp.consumer.dao.contrat.DaoProxy;
-import com.dummy.myerp.consumer.dao.impl.DaoProxyImpl;
 import com.dummy.myerp.consumer.dao.impl.db.dao.ComptabiliteDaoImpl;
 import com.dummy.myerp.consumer.dao.impl.db.dao.ComptabiliteDaoMock;
 import com.dummy.myerp.consumer.dao.impl.db.dao.DaoProxyMock;
 import com.dummy.myerp.model.bean.comptabilite.*;
-import com.dummy.myerp.model.bean.fixtures.Fixtures;
-import com.dummy.myerp.technical.exception.NotFoundException;
-import com.dummy.myerp.technical.exception.TechnicalException;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import com.dummy.myerp.technical.exception.FunctionalException;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import static com.dummy.myerp.consumer.ConsumerHelper.getDaoProxy;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -101,6 +91,7 @@ public class ComptabiliteManagerImplTest {
     EcritureComptable ec5 = new EcritureComptable (	5,	jc4,	"OD-2019/00005",	new Date(),	"Paiement Facture C110002");
     EcritureComptable ec6 = new EcritureComptable ( 6,  jc5,    "TE-2018/00006",   new Date(), "ec test");
 
+ //TODO: test à réaliser
 
  //  @Test
  //  public void checkEcritureComptableUnit() throws Exception {

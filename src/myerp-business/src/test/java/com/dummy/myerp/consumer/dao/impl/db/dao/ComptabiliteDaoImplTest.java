@@ -12,9 +12,6 @@ public class ComptabiliteDaoImplTest {
     public void setSQLgetSequenceEcritureComptableByYearAndCode() {
     }
 
-    @Test
-    public void getSQLgetSequenceEcritureComptableByYearAndCode() {
-    }
 
     @Test
     public void deleteEcritureComptable() {

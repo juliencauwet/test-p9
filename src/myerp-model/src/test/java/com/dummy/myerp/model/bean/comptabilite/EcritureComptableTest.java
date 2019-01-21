@@ -13,9 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class EcritureComptableTest {
 
-    @Autowired
-    Fixtures fixtures;
-
     List<CompteComptable> comptes = Arrays.asList(
             new CompteComptable(401,	"Fournisseurs"),
             new CompteComptable(411,	"Clients"	),
