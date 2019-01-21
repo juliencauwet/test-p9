@@ -3,12 +3,9 @@ package com.dummy.myerp.model.bean.comptabilite;
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
-
-import com.dummy.myerp.model.bean.fixtures.Fixtures;
 import org.apache.commons.lang3.ObjectUtils;
 import org.junit.Assert;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 
 
 public class EcritureComptableTest {
