@@ -12,7 +12,7 @@ import static org.junit.Assert.assertNotNull;
  * Classe de test de l'initialisation du contexte Spring
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:com/dummy/myerp/business/applicationContext.xml"})
+@ContextConfiguration(locations = {"classpath:applicationContext.xml"})
 public class TestInitSpring extends BusinessTestCase {
 
     /**
