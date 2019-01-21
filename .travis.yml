@@ -8,14 +8,10 @@ sudo: required
 services:
   - docker
 
-#env:
- # - CODECOV_TOKEN="debd6b13-faba-4f2f-a16e-1b8cd052a354"
-
 before_install:
   - cd docker/dev
-  - docker-compose stop
-  - docker-compose rm -f
-  - docker-compose up &
+  - docker-compose up -d
+  - docker ps -a
 
 before_script:
   - cd ../../src
@@ -25,7 +21,7 @@ script:
   - cd ../docker/dev
   - docker-compose stop
   - docker-compose rm -f
-  - docker-compose up &
+  - docker-compose up -d
   - docker ps -a
   - cd ../../src
 
@@ -33,7 +29,45 @@ after_success:
   - mvn --file pom.xml cobertura:cobertura -P test-consumer,test-business
   - bash <(curl -s https://codecov.io/bash)
 
-
 notifications:
   email: false
+
+#language: java
+#
+#jdk:
+#  - oraclejdk8
+#
+#sudo: required
+#
+#services:
+#  - docker
+#
+##env:
+# # - CODECOV_TOKEN="debd6b13-faba-4f2f-a16e-1b8cd052a354"
+#
+#before_install:
+#  - cd docker/dev
+#  - docker-compose stop
+#  - docker-compose rm -f
+#  - docker-compose up &
+#
+#before_script:
+#  - cd ../../src
+#
+#script:
+#  - mvn test -Ptest-consumer,test-business
+#  - cd ../docker/dev
+#  - docker-compose stop
+#  - docker-compose rm -f
+#  - docker-compose up &
+#  - docker ps -a
+#  - cd ../../src
+#
+#after_success:
+#  - mvn --file pom.xml cobertura:cobertura -P test-consumer,test-business
+#  - bash <(curl -s https://codecov.io/bash)
+#
+#
+#notifications:
+#  email: false
 
