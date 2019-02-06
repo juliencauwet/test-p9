@@ -20,6 +20,7 @@ before_script:
 
 script:
   - mvn test -Ptest-consumer,test-business
+  - ls /home/travis/build/juliencauwet/test-p9/src/myerp-business/target/surefire-reports
   - cat /home/travis/build/juliencauwet/test-p9/src/myerp-business/target/surefire-reports/com.dummy.myerp.business.impl.manager.ComptabiliteManagerImplTest.txt
   - cat /home/travis/build/juliencauwet/test-p9/src/myerp-business/target/surefire-reports/com.dummy.myerp.consumer.dao.impl.db.dao.ComptabiliteDaoImplTest.txt
   - cat /home/travis/build/juliencauwet/test-p9/src/myerp-business/target/surefire-reports/com.dummy.myerp.testbusiness.business.TestInitSpring.txt
