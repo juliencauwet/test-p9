@@ -20,6 +20,7 @@ before_script:
 
 script:
   - mvn test -Ptest-consumer,test-business
+  - cat /home/travis/build/juliencauwet/test-p9/src/myerp-business/target/surefire-reports
   - cd ../docker/dev
   - docker-compose stop
   - docker-compose rm -f
