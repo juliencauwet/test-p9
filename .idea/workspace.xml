@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8179c5fe-066f-4b3d-a147-ce2a8e5e9fe8" name="Default" comment="changed travis">
+    <list default="true" id="8179c5fe-066f-4b3d-a147-ce2a8e5e9fe8" name="Default" comment="added applicationContext to test classpath">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/src/myerp-consumer/target/" />
@@ -785,7 +785,7 @@
     <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549445308118" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549445635915" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="PostgreSQL" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
@@ -804,23 +804,24 @@
       <recent name="com.dummy.myerp.business.impl.manager" />
       <recent name="com.dummy.myerp.configuration" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.dummy.myerp.consumer.dao.impl.db.dao" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/myerp-business/src/test-business/resources" />
+      <recent name="$PROJECT_DIR$/src/myerp-business/src/test/java/com/dummy/myerp/consumer/dao/impl/db/dao" />
+      <recent name="$PROJECT_DIR$/src/myerp-consumer/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/myerp-consumer/src/test/resources" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/myerp-business/src/main/resources" />
       <recent name="$PROJECT_DIR$/src/myerp-business/src/test-business/resources" />
       <recent name="$PROJECT_DIR$/src/myerp-business/src/test-business" />
       <recent name="$PROJECT_DIR$/src/myerp-business/src/test-business/java/com/dummy/myerp/testbusiness/business" />
       <recent name="$PROJECT_DIR$/docker/dev/init/db/docker-entrypoint-initdb.d" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="com.dummy.myerp.consumer.dao.impl.db.dao" />
-    </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/myerp-business/src/test/java/com/dummy/myerp/consumer/dao/impl/db/dao" />
-      <recent name="$PROJECT_DIR$/src/myerp-consumer/src/main/resources" />
-      <recent name="$PROJECT_DIR$/src/myerp-consumer/src/test/resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -1008,14 +1009,7 @@
       <workItem from="1547816409545" duration="15894000" />
       <workItem from="1548066193732" duration="1977000" />
       <workItem from="1548069883182" duration="10122000" />
-      <workItem from="1549306555585" duration="3542000" />
-    </task>
-    <task id="LOCAL-00003" summary="Implémentation de la classe du RowMapper pour SequenceEcritureComptableRM">
-      <created>1538326857445</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1538326857445</updated>
+      <workItem from="1549306555585" duration="3672000" />
     </task>
     <task id="LOCAL-00004" summary="fin de l'implémentation de getSQLgetSequenceEcritureComptableByYearAndCode (à tester)">
       <created>1538387200590</created>
@@ -1353,7 +1347,14 @@
       <option name="project" value="LOCAL" />
       <updated>1549444814950</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="added applicationContext to test classpath">
+      <created>1549445342538</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1549445342538</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1389,7 +1390,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="280624000" />
+    <option name="totallyTimeSpent" value="280754000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1446,7 +1447,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="test d'intégration réussi grâce à checkListCompteComptableTest" />
     <MESSAGE value="test d'intégration réussi grâce à getListJournalComptableTest et getListEcritureComptableTest" />
     <MESSAGE value="connexion à docker réussi" />
     <MESSAGE value="added .travis.yml" />
@@ -1471,7 +1471,8 @@
     <MESSAGE value="changed apllicationContext" />
     <MESSAGE value="changed apllicationContext pATH" />
     <MESSAGE value="changed travis" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed travis" />
+    <MESSAGE value="added applicationContext to test classpath" />
+    <option name="LAST_COMMIT_MESSAGE" value="added applicationContext to test classpath" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
