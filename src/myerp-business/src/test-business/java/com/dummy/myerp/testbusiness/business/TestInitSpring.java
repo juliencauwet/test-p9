@@ -1,9 +1,8 @@
 package com.dummy.myerp.testbusiness.business;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -11,8 +10,10 @@ import static org.junit.Assert.assertNotNull;
 /**
  * Classe de test de l'initialisation du contexte Spring
  */
-@RunWith(SpringJUnit4ClassRunner.class)
 public class TestInitSpring extends BusinessTestCase {
+
+
+    Logger logger = LoggerFactory.getLogger(this.getClass());
 
     /**
      * Constructeur.
@@ -29,6 +30,7 @@ public class TestInitSpring extends BusinessTestCase {
     @Test
     public void testInit() {
         SpringRegistry.init();
+        //SpringRegistry.getDaoProxy();
         assertNotNull(SpringRegistry.getBusinessProxy());
         assertNotNull(SpringRegistry.getTransactionManager());
     }

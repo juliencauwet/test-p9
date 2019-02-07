@@ -4,8 +4,18 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                            http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
 
-    <import resource="classpath:/com/dummy/myerp/business/businessContext.xml"/>
+    <bean id="businessProxy"
+          class="com.dummy.myerp.business.impl.BusinessProxyImpl"
+          factory-method="getInstance">
+        <constructor-arg ref="DaoProxy"/>
+        <constructor-arg ref="TransactionManager"/>
+    </bean>
+
+
+    <import resource="classpath:transactionContext.xml"/>
+    <import resource="classpath:/com/dummy/myerp/consumer/consumerContext.xml"/>
+    <!--
     <import resource="classpath:/com/dummy/myerp/consumer/consumerContext.xml"/>
     <import resource="classpath:/com/dummy/myerp/testbusiness/business/datasourceContext.xml"/>
-
+-->
 </beans>

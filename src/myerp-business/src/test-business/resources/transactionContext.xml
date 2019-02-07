@@ -17,8 +17,18 @@
 
     <!-- PlatformTransactionManager pour le DataSource MYERP -->
     <bean id="txManagerMYERP" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" value="null"/>
+        <property name="dataSource" ref="dataSourceMYERP2"/>
+
     </bean>
+
+    <bean id="dataSourceMYERP2" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="org.postgresql.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/mkyongjava" />
+        <property name="username" value="root" />
+        <property name="password" value="password" />
+    </bean>
+
+
 <!--
     <bean id="dataSourceMyERP" class="javax.sql.DataSource">
 

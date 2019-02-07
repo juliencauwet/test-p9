@@ -68,8 +68,11 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-dbcp2</artifactId>
-            <scope>test</scope>
+            <!-- <scope>test</scope> -->
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2 -->
+
         <!-- Drivers JDBC PostgreSQL -->
         <dependency>
             <groupId>org.postgresql</groupId>
