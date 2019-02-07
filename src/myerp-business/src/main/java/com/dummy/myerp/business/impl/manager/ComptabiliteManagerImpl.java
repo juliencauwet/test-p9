@@ -148,7 +148,6 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
                                               "L'écriture comptable ne respecte pas les contraintes de validation",
                                               vViolations));
         }
-
         // ===== RG_Compta_2 : Pour qu'une écriture comptable soit valide, elle doit être équilibrée
         RG_2_Equilibree(pEcritureComptable);
 
@@ -276,16 +275,6 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
             throw new FunctionalException("L'année de l'écriture diffère de l'année de référence.");
         if (!pEcritureComptable.getReference().substring(0,2).equals(pEcritureComptable.getJournal().getCode()))
             throw new FunctionalException("Le code journal de référence diffère du code du journal");
-
-        /*
-        String vDate = new SimpleDateFormat("yyyy").format(pEcritureComptable.getDate());
-        if (!pEcritureComptable.getReference().substring(3, 7).equals(vDate))
-            throw new FunctionalException(
-                    "L'année dans la référence doit correspondre à la date de l'écriture comptable.");
-        if (!pEcritureComptable.getReference().substring(0, 2).equals(pEcritureComptable.getJournal().getCode()))
-            throw new FunctionalException(
-                    "Le code journal dans la référence doit correspondre au code du journal en question.");
-         */
     }
 
     protected String buildReference(String annee, String code, int valeur){

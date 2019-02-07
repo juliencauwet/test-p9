@@ -29,12 +29,6 @@
     </bean>
 
 
-<!--
-    <bean id="dataSourceMyERP" class="javax.sql.DataSource">
-
-    </bean>
--->
-
     <import resource="classpath:/com/dummy/myerp/consumer/consumerContext.xml"/>
 
 

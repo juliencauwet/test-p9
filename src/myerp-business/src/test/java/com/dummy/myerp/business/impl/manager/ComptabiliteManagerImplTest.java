@@ -2,10 +2,10 @@ package com.dummy.myerp.business.impl.manager;
 
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.time.LocalDateTime;
+import java.time.Year;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 import com.dummy.myerp.consumer.dao.contrat.ComptabiliteDao;
 import com.dummy.myerp.consumer.dao.contrat.DaoProxy;
@@ -21,6 +21,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -29,6 +30,8 @@ public class ComptabiliteManagerImplTest {
     private ComptabiliteManagerImpl manager = new ComptabiliteManagerImpl();
     private EcritureComptable vEcritureComptable;
     private static SimpleDateFormat dateFormat;
+
+    Calendar cal = mock(Calendar.class);
 
     @BeforeClass
    public static void setUp() {
@@ -92,22 +95,31 @@ public class ComptabiliteManagerImplTest {
     EcritureComptable ec6 = new EcritureComptable ( 6,  jc5,    "TE-2018/00006",   new Date(), "ec test");
 
  //TODO: test à réaliser
+   @Test
+   public void checkEcritureComptableUnit() throws Exception {
+       LocalDateTime now = LocalDateTime.now();
 
- //  @Test
- //  public void checkEcritureComptableUnit() throws Exception {
- //      EcritureComptable vEcritureComptable;
- //      vEcritureComptable = new EcritureComptable();
- //      vEcritureComptable.setJournal(new JournalComptable("AC", "Achat"));
- //      vEcritureComptable.setDate(new Date());
- //      vEcritureComptable.setLibelle("Libelle");
- //      vEcritureComptable.getListLigneEcriture().add(new LigneEcritureComptable(new CompteComptable(1),
- //                                                                               null, new BigDecimal(123),
- //                                                                               null));
- //      vEcritureComptable.getListLigneEcriture().add(new LigneEcritureComptable(new CompteComptable(2),
- //                                                                               null, null,
- //                                                                               new BigDecimal(123)));
- //      manager.checkEcritureComptableUnit(vEcritureComptable);
- //  }
+       DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy");
+
+       String year = now.format(formatter);
+
+       String ref = "AC-" + year + "/00001";
+
+       EcritureComptable vEcritureComptable = new EcritureComptable();
+       vEcritureComptable.setJournal(new JournalComptable("AC", "Achat"));
+       vEcritureComptable.setDate(new Date());
+       vEcritureComptable.setLibelle("Libelle");
+       vEcritureComptable.getListLigneEcriture().add(new LigneEcritureComptable(new CompteComptable(1),
+                                                                                null, new BigDecimal(123),
+                                                                                null));
+       vEcritureComptable.getListLigneEcriture().add(new LigneEcritureComptable(new CompteComptable(2),
+                                                                                null, null,
+                                                                                new BigDecimal(123)));
+        vEcritureComptable.setReference(ref);
+
+
+       manager.checkEcritureComptableUnit(vEcritureComptable);
+   }
 
     @Test(expected = FunctionalException.class)
     public void checkEcritureComptableUnitViolation() throws Exception {
