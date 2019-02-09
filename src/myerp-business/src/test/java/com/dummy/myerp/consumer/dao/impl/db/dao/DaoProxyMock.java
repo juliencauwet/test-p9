@@ -24,6 +24,7 @@ public class DaoProxyMock implements DaoProxy {
     }
 
 
+
     public void setComptabiliteDao(ComptabiliteDao comptabiliteDao) {
         this.comptabiliteDao = comptabiliteDao;
     }

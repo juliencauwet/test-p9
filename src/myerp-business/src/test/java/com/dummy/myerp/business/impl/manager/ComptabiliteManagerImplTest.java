@@ -34,7 +34,6 @@ public class ComptabiliteManagerImplTest extends AbstractBusinessManager{
     private EcritureComptable vEcritureComptable;
     private static SimpleDateFormat dateFormat;
 
-    Calendar cal = mock(Calendar.class);
 
     @BeforeClass
    public static void setUp() {
@@ -47,8 +46,9 @@ public class ComptabiliteManagerImplTest extends AbstractBusinessManager{
    }
 
 
+
     @Mock
-    ComptabiliteDaoImpl comptabiliteDao;
+    ComptabiliteDaoMock comptabiliteDao;
 
     @Mock
     ComptabiliteManagerImpl comptabiliteManager;
@@ -229,20 +229,68 @@ public class ComptabiliteManagerImplTest extends AbstractBusinessManager{
         manager.RG_5_formatCorrect(ec4);
     }
 
+
     @Test
     public void RG_5_formatCorrect_ec5() throws FunctionalException {
 
         manager.RG_5_formatCorrect(ec5);
     }
 
+    /**
+     * code journal incorrect
+     * @throws FunctionalException
+     */
+    @Test(expected = FunctionalException.class)
+    public void RG_5_CodeJournalNonCorrect() throws FunctionalException{
+        String year = Integer.toString(LocalDateTime.now().getYear());
+
+        EcritureComptable ec = new EcritureComptable();
+        ec.setDate(new Date());
+        ec.setJournal(jc1);
+        ec.setReference("EU-" + year + "/00002");
+        manager.RG_5_formatCorrect(ec);
+    }
+
+    /**
+     * année référence incorrecte
+     * @throws FunctionalException
+     */
+    @Test(expected = FunctionalException.class)
+    public void RG_5_AnneeNonCorrect() throws FunctionalException{
+        String year = "1897";
+
+        EcritureComptable ec = new EcritureComptable();
+        ec.setDate(new Date());
+        ec.setJournal(jc1);
+        ec.setReference("AC-" + year + "/00002");
+        manager.RG_5_formatCorrect(ec);
+    }
+
+
+
+
 
     @Test
     public void getListCompteComptable() {
+        when(getDaoProxy().getComptabiliteDao().getListCompteComptable()).thenReturn(Arrays.asList(cc1, cc2, cc3, cc4));
+        List<CompteComptable> list = manager.getListCompteComptable();
+        Assert.assertEquals(4, list.size());
 
-        when(comptabiliteDao.getListCompteComptable()).thenReturn(new ArrayList<>(Arrays.asList(cc1, cc2, cc3)));
-        List<CompteComptable> list = comptabiliteDao.getListCompteComptable();
+    }
+
+    @Test
+    public void getListJournalComptable() {
+        when(getDaoProxy().getComptabiliteDao().getListJournalComptable()).thenReturn(Arrays.asList(jc1, jc2, jc3));
+        List<JournalComptable> list = manager.getListJournalComptable();
         Assert.assertEquals(3, list.size());
 
+    }
+
+    @Test
+    public void getListEcritureComptable() {
+        when(getDaoProxy().getComptabiliteDao().getListEcritureComptable()).thenReturn(Arrays.asList(ec1,ec2, ec3));
+        List<EcritureComptable> list = manager.getListEcritureComptable();
+        Assert.assertEquals(3, list.size());
     }
 
     @Test
@@ -250,17 +298,11 @@ public class ComptabiliteManagerImplTest extends AbstractBusinessManager{
         Assert.assertEquals("OD-2019/00004", manager.buildReference(manager.getYear(ec5.getDate()), ec5.getJournal().getCode(), 4));
     }
 
-    //TODO: à revoir
     @Test(expected = FunctionalException.class)
     public void checkEcritureComptableContextIfRefExists () throws NotFoundException, FunctionalException {
 
         when(getDaoProxy().getComptabiliteDao().getEcritureComptableByRef(anyString())).thenReturn(ec1);
-        //when(comptabiliteDao.getEcritureComptableByRef(anyString())).thenReturn(ec1);
 
-        /*
-             EcritureComptable vECRef = getDaoProxy().getComptabiliteDao().getEcritureComptableByRef(
-                    pEcritureComptable.getReference());
-         */
         EcritureComptable ecritureComptable = new EcritureComptable();
         ecritureComptable.setId(101);
         ecritureComptable.setJournal(jc1);
@@ -288,13 +330,37 @@ public class ComptabiliteManagerImplTest extends AbstractBusinessManager{
         ecritureComptable.setId(100);
 
         manager.checkEcritureComptableContext(ecritureComptable);
-        //verify(comptabiliteDao.getEcritureComptableByRef(anyString()));
+
     }
 
     @Test
-    public void checkEcritureComptableContextOK() throws FunctionalException{
+    public void checkEcritureComptableContextOK() throws FunctionalException, NotFoundException{
         EcritureComptable ec = new EcritureComptable();
+        when(getDaoProxy().getComptabiliteDao().getEcritureComptableByRef(anyString())).thenReturn(ec2);
+        ec.setReference("BQ-2018/00002");
+        ec.setId(103);
+        ec2.setId(103);
         manager.checkEcritureComptableContext(ec);
+    }
+
+    @Test
+    public void deleteEcritureComptable(){
+
+    }
+
+    @Test
+    public void updateEcritureComptable(){
+
+    }
+
+    @Test
+    public void addReference(){
+
+    }
+
+    @Test
+    public void checkEcritureComptable(){
+
     }
 
 }

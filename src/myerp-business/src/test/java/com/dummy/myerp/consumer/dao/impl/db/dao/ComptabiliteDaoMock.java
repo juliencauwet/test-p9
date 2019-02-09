@@ -65,17 +65,18 @@ public class ComptabiliteDaoMock {
         ecritureComptable.setDate(new Date(2016-12-31));
         ecritureComptableList.add(ecritureComptable);
 
-        //INSERT INTO MYERP.ecriture_comptable (id,journal_code,reference,date,libelle) VALUES (	-2,	'VE',	'VE-2016/00002',	'2016-12-30',	'TMA Appli Xxx'	);
-        //INSERT INTO MYERP.ecriture_comptable (id,journal_code,reference,date,libelle) VALUES (	-3,	'BQ',	'BQ-2016/00003',	'2016-12-29',	'Paiement Facture F110001'	);
-        //INSERT INTO MYERP.ecriture_comptable (id,journal_code,reference,date,libelle) VALUES (	-4,	'VE',	'VE-2016/00004',	'2016-12-28',	'TMA Appli Yyy'	);
-        //INSERT INTO MYERP.ecriture_comptable (id,journal_code,reference,date,libelle) VALUES (	-5,	'BQ',	'BQ-2016/00005',	'2016-12-27',	'Paiement Facture C110002'	);
-
         return ecritureComptableList;
     }
 
 
-    public EcritureComptable getEcritureComptable(Integer pId) throws NotFoundException {
-        return null;
+    public List<EcritureComptable> getEcritureComptable(Integer pId) throws NotFoundException {
+        return Arrays.asList(
+         new EcritureComptable (	1,	new JournalComptable(),	"AC-2016/00001",	new Date(),	"Cartouches d’imprimante"	),
+         new EcritureComptable (	2,	new JournalComptable(),	"BQ-2018/00002",	new Date(),	"TMA Appli Xxx"),
+         new EcritureComptable (	3,	new JournalComptable(),	"BQ-2018/00003",	new Date(),	"Paiement Facture F110001"),
+         new EcritureComptable (	4,	new JournalComptable(),	"VE-2018/00004",	new Date(),	"TMA Appli Yyy")
+
+        );
     }
 
 
