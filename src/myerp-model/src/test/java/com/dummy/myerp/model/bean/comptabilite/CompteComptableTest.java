@@ -44,4 +44,15 @@ public class CompteComptableTest {
 
     }
 
+    @Test
+    public void setLibelle(){
+        cc1.setLibelle("test");
+        Assert.assertEquals("test", cc1.getLibelle());
+    }
+
+    @Test
+    public void toStringTest(){
+        Assert.assertEquals("CompteComptable{numero=401, libelle='Fournisseurs'}", cc1.toString());
+    }
+
 }

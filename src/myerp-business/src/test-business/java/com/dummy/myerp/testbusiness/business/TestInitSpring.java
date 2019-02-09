@@ -12,9 +12,6 @@ import static org.junit.Assert.assertNotNull;
  */
 public class TestInitSpring extends BusinessTestCase {
 
-
-    Logger logger = LoggerFactory.getLogger(this.getClass());
-
     /**
      * Constructeur.
      */
@@ -26,10 +23,10 @@ public class TestInitSpring extends BusinessTestCase {
     /**
      * Teste l'initialisation du contexte Spring
      */
-    //TODO: réaliser ce test
     @Test
     public void testInit() {
         SpringRegistry.init();
+        assertNotNull(SpringRegistry.getDaoProxy());
         assertNotNull(SpringRegistry.getBusinessProxy());
         assertNotNull(SpringRegistry.getTransactionManager());
     }

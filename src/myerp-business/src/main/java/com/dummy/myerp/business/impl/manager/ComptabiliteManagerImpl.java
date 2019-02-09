@@ -94,7 +94,7 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
                 3.  Mettre à jour la référence de l'écriture avec la référence calculée (RG_Compta_5)
          */
         // appelle la méthode pour construire la référence
-        buildReference(annee, code, valeur);
+        pEcritureComptable.setReference(buildReference(annee, code, valeur));
         /*
 
         /*
@@ -115,6 +115,8 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
         vNewSequence.setDerniereValeur(vNumeroSequence);
         this.upsertSequenceEcritureComptable(vNewSequence);
          */
+
+
     }
 
 

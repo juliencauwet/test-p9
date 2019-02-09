@@ -15,6 +15,7 @@ import com.dummy.myerp.consumer.dao.impl.db.dao.ComptabiliteDaoMock;
 import com.dummy.myerp.consumer.dao.impl.db.dao.DaoProxyMock;
 import com.dummy.myerp.model.bean.comptabilite.*;
 import com.dummy.myerp.technical.exception.NotFoundException;
+import com.dummy.myerp.technical.exception.TechnicalException;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -23,6 +24,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
+import org.omg.CORBA.TRANSACTION_REQUIRED;
 
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.*;
@@ -86,7 +88,7 @@ public class ComptabiliteManagerImplTest extends AbstractBusinessManager{
     JournalComptable jc4 = new JournalComptable (	"OD",	"Opérations Diverses"	);
     JournalComptable jc5 = new JournalComptable (	"TE",	"jc test"	);
 
-    SequenceEcritureComptable sec1 = new SequenceEcritureComptable (2018,	40, "AC");
+    SequenceEcritureComptable sec1 = new SequenceEcritureComptable (2017,	40, "AC");
     SequenceEcritureComptable sec2 = new SequenceEcritureComptable (2017,	41, "VE");
     SequenceEcritureComptable sec3 = new SequenceEcritureComptable (2018,	51, ""	);
     SequenceEcritureComptable sec4 = new SequenceEcritureComptable (2018,	88, ""	);
@@ -266,10 +268,6 @@ public class ComptabiliteManagerImplTest extends AbstractBusinessManager{
         manager.RG_5_formatCorrect(ec);
     }
 
-
-
-
-
     @Test
     public void getListCompteComptable() {
         when(getDaoProxy().getComptabiliteDao().getListCompteComptable()).thenReturn(Arrays.asList(cc1, cc2, cc3, cc4));
@@ -343,18 +341,24 @@ public class ComptabiliteManagerImplTest extends AbstractBusinessManager{
         manager.checkEcritureComptableContext(ec);
     }
 
-    @Test
-    public void deleteEcritureComptable(){
-
-    }
 
     @Test
     public void updateEcritureComptable(){
+        ec1.setDate(new Date());
+        comptabiliteDao.updateEcritureComptable(ec1);
+
 
     }
 
     @Test
-    public void addReference(){
+    public void addReference() throws NotFoundException, TechnicalException, FunctionalException {
+        String year = Integer.toString(LocalDateTime.now().getYear());
+        when(getDaoProxy().getComptabiliteDao().getSQLgetSequenceEcritureComptableByYearAndCode(anyString(), anyInt())).thenReturn(Arrays.asList(sec1, sec2));
+        EcritureComptable ec = new EcritureComptable();
+        ec.setDate(new Date());
+        ec.setJournal(jc1);
+        manager.addReference(ec);
+        Assert.assertEquals("AC-"+ year + "/00042", ec.getReference());
 
     }
 
