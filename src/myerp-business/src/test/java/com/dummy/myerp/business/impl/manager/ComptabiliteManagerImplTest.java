@@ -9,8 +9,6 @@ import java.util.*;
 import com.dummy.myerp.business.impl.AbstractBusinessManager;
 import com.dummy.myerp.consumer.dao.contrat.ComptabiliteDao;
 import com.dummy.myerp.consumer.dao.contrat.DaoProxy;
-import com.dummy.myerp.consumer.dao.impl.DaoProxyImpl;
-import com.dummy.myerp.consumer.dao.impl.db.dao.ComptabiliteDaoImpl;
 import com.dummy.myerp.consumer.dao.impl.db.dao.ComptabiliteDaoMock;
 import com.dummy.myerp.consumer.dao.impl.db.dao.DaoProxyMock;
 import com.dummy.myerp.model.bean.comptabilite.*;
@@ -24,8 +22,6 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.omg.CORBA.TRANSACTION_REQUIRED;
-
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.*;
 
