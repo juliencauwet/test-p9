@@ -41,3 +41,8 @@ Il comporte :
     
  #Regular expression changée
  #totalGetDebit
+ #Requête SQL SQLgetSequenceEcritureComptableByYearAndCode
+ 
+ 
+ -pour tester methode checkEcritureComptableContext il faut extends AbstractBusinessManager afin de mocker la methode getDaoProxy
+ 
