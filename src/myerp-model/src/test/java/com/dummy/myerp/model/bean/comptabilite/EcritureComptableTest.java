@@ -67,7 +67,7 @@ public class EcritureComptableTest {
    public void getTotalDebitTest() {
         BigDecimal total = new BigDecimal(0);
 
-       EcritureComptable ecritureComptable = new EcritureComptable();
+       EcritureComptable ecritureComptable = new EcritureComptable(100, new JournalComptable("TE", "Test"), "TE-1897/00001", new Date(), "test");
        ecritureComptable.getListLigneEcriture().add(lec1);
        ecritureComptable.getListLigneEcriture().add(lec2);
        ecritureComptable.getListLigneEcriture().add(lec3);

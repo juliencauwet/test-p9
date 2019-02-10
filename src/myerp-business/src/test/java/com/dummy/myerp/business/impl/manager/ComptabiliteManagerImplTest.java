@@ -335,7 +335,7 @@ public class ComptabiliteManagerImplTest extends AbstractBusinessManager{
  //      comptabiliteDao.deleteEcritureComptable(2);
  //      verify(comptabiliteDao, times(1)).deleteEcritureComptable(2);
 
- //   }
+ //x       }
 
     @Test
     public void addReference() throws NotFoundException, TechnicalException, FunctionalException {
