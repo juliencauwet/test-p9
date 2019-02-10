@@ -22,6 +22,8 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
+import org.springframework.transaction.TransactionStatus;
+
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.*;
 
@@ -29,27 +31,21 @@ import static org.mockito.Mockito.*;
 public class ComptabiliteManagerImplTest extends AbstractBusinessManager{
 
     private ComptabiliteManagerImpl manager = new ComptabiliteManagerImpl();
-    private EcritureComptable vEcritureComptable;
-    private static SimpleDateFormat dateFormat;
-
-
-    @BeforeClass
-   public static void setUp() {
-       ComptabiliteDao comptabiliteDao=Mockito.mock(ComptabiliteDao.class);
-       DaoProxy daoProxy = new DaoProxyMock(comptabiliteDao);
-       ComptabiliteDaoMock comptabiliteDaoMock=new ComptabiliteDaoMock();
-       ComptabiliteManagerImpl.configure(null, daoProxy, null);
-       //when(daoProxy.getComptabiliteDao().getListEcritureComptable()).thenReturn(comptabiliteDaoMock.getListEcritureComptable());
-       dateFormat = new SimpleDateFormat("yyyy");
-   }
-
-
+    private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy");;
 
     @Mock
     ComptabiliteDaoMock comptabiliteDao;
 
     @Mock
-    ComptabiliteManagerImpl comptabiliteManager;
+    TransactionStatus status;
+
+    @BeforeClass
+    public static void setUp() {
+        ComptabiliteDao comptabiliteDao=Mockito.mock(ComptabiliteDao.class);
+        DaoProxy daoProxy = new DaoProxyMock(comptabiliteDao);
+        ComptabiliteDaoMock comptabiliteDaoMock=new ComptabiliteDaoMock();
+        ComptabiliteManagerImpl.configure(null, daoProxy, null);
+    }
 
 
     CompteComptable cc1 = new CompteComptable(401,	"Fournisseurs"	);
@@ -66,17 +62,7 @@ public class ComptabiliteManagerImplTest extends AbstractBusinessManager{
     LigneEcritureComptable lec2 = new LigneEcritureComptable (	cc1,"TVA 20%",	new BigDecimal(8.79),	null	);
     LigneEcritureComptable lec3 = new LigneEcritureComptable (	cc2,"Facture F110001",	null,	new BigDecimal(52.74)	);
     LigneEcritureComptable lec4 = new LigneEcritureComptable (	cc2,"Facture C110002",	new BigDecimal(3000),	null	);
-    LigneEcritureComptable lec5 = new LigneEcritureComptable (	cc4,"TMA Appli Xxx",	null,	new BigDecimal(2500)	);
-    LigneEcritureComptable lec6 = new LigneEcritureComptable (	cc5,"TVA 20%",	null,	new BigDecimal(500)	);
-    LigneEcritureComptable lec7 = new LigneEcritureComptable (	cc6,null,	new BigDecimal(52.74),	null	);
-    LigneEcritureComptable lec8 = new LigneEcritureComptable (	cc7,null,	null,	new BigDecimal(52.74)	);
-    LigneEcritureComptable lec9 = new LigneEcritureComptable (	cc1,"Facture C110004",	new BigDecimal(5700),	null	);
-    LigneEcritureComptable lec10 = new LigneEcritureComptable (	cc3,"TMA Appli Xxx",	null,	new BigDecimal(4750)	);
-    LigneEcritureComptable lec11 = new LigneEcritureComptable (	cc4,"TVA 20%",	null,	new BigDecimal(950)	);
-    LigneEcritureComptable lec12 = new LigneEcritureComptable (	cc7,null,	new BigDecimal(3000),	null	);
-    LigneEcritureComptable lec13 = new LigneEcritureComptable (	cc1,null,	null,	new BigDecimal(3000));
-    LigneEcritureComptable lec14 = new LigneEcritureComptable(cc8, "lec test1", new BigDecimal(123), null);
-    LigneEcritureComptable lec15 = new LigneEcritureComptable(cc9, "lec test2", null, new BigDecimal(1234));
+    LigneEcritureComptable lec5 = new LigneEcritureComptable (	cc2,"Créance",	null,	new BigDecimal(3000)	);
 
     JournalComptable jc1 = new JournalComptable (	"AC",	"Achat"	);
     JournalComptable jc2 = new JournalComptable (	"VE",	"Vente"	);
@@ -336,9 +322,9 @@ public class ComptabiliteManagerImplTest extends AbstractBusinessManager{
      * vérifie que la méthode updateEcritureComptable du mock est bien appelée une fois
      */
     @Test
-    public void updateEcritureComptable(){
+    public void updateEcritureComptable() throws FunctionalException{
         ec1.setDate(new Date());
-        comptabiliteDao.updateEcritureComptable(ec1);
+        manager.updateEcritureComptable(ec1);
         verify(comptabiliteDao, times(1)).updateEcritureComptable(ec1);
 
     }
@@ -363,9 +349,12 @@ public class ComptabiliteManagerImplTest extends AbstractBusinessManager{
 
     }
 
-    @Test
-    public void checkEcritureComptable(){
+    @Test(expected = FunctionalException.class)
+    public void checkEcritureComptableUnit()throws FunctionalException{
 
+        manager.checkEcritureComptableUnit(ec1);
+        verify(manager, times(1)).RG_2_Equilibree(ec1);
     }
+
 
 }
