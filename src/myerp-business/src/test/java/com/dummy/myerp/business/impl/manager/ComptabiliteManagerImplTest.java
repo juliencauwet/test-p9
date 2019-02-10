@@ -22,7 +22,6 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.springframework.transaction.TransactionStatus;
 
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.*;
@@ -74,6 +73,10 @@ public class ComptabiliteManagerImplTest extends AbstractBusinessManager{
     EcritureComptable ec3 = new EcritureComptable (	3,	jc3,	"BQ-2018/00003",	new Date(),	"Paiement Facture F110001");
     EcritureComptable ec5 = new EcritureComptable (	5,	jc4,	"OD-2019/00005",	new Date(),	"Paiement Facture C110002");
 
+
+    /**
+     * vérifie que l'écriture comptable soit conforme aux critères de validation
+     */
    @Test
    public void checkEcritureComptableUnitWhenNoViolation() throws Exception {
 
@@ -140,7 +143,7 @@ public class ComptabiliteManagerImplTest extends AbstractBusinessManager{
     }
 
     /**
-     * vérifie si les lignes d'écriture s'équilibrent. Doit renvoyer une exceptioncar totaldebit et totalcrédit sont différents
+     * vérifie si les lignes d'écriture s'équilibrent. Doit renvoyer une exception car totaldebit et totalcrédit sont différents
      * @throws Exception
      */
     @Test(expected = FunctionalException.class)
@@ -158,6 +161,10 @@ public class ComptabiliteManagerImplTest extends AbstractBusinessManager{
         manager.RG_2_Equilibree(vEcritureComptable);
     }
 
+    /**
+     * teste que l'écriture comptable soit conforme au RG_3. Renvoie une exception car elle ne contient pas de ligne de crédit
+     * @throws Exception
+     */
     @Test(expected = FunctionalException.class)
     public void checkEcritureComptableUnitRG3() throws Exception {
         EcritureComptable vEcritureComptable = new EcritureComptable();
@@ -173,6 +180,9 @@ public class ComptabiliteManagerImplTest extends AbstractBusinessManager{
         manager.RG_3_auMoins2Lignes(vEcritureComptable);
     }
 
+    /**
+     * teste que ec1 soit conforme à RG_5 mais renvoie une erreur pour code année incorrect
+     */
     @Test(expected = FunctionalException.class)
     public void RG_5_formatNonCorrect_AnneeRefIncoorecte() throws FunctionalException {
 
@@ -182,6 +192,9 @@ public class ComptabiliteManagerImplTest extends AbstractBusinessManager{
 
     }
 
+    /**
+     * teste que ec2 soit conforme à RG_5 mais renvoie une erreur pour code journal incorrect
+     */
     @Test(expected = FunctionalException.class)
     public void RG_5_formatNonCorrect_CodeJournaIncorrect() throws FunctionalException {
 
@@ -190,6 +203,9 @@ public class ComptabiliteManagerImplTest extends AbstractBusinessManager{
         manager.RG_5_formatCorrect(ec2);
     }
 
+    /**
+     *vérifie que ec3 est conform à RG_5
+     */
     @Test
     public void RG_5_formatCorrect_ec3() throws FunctionalException {
 
@@ -198,6 +214,9 @@ public class ComptabiliteManagerImplTest extends AbstractBusinessManager{
         manager.RG_5_formatCorrect(ec3);
     }
 
+    /**
+     *vérifie que ec4 est conform à RG_5
+     */
     @Test
     public void RG_5_formatCorrect_ec4() throws FunctionalException {
 
@@ -205,6 +224,9 @@ public class ComptabiliteManagerImplTest extends AbstractBusinessManager{
         manager.RG_5_formatCorrect(ec4);
     }
 
+    /**
+     *vérifie que ec5 est conform à RG_5
+     */
 
     @Test
     public void RG_5_formatCorrect_ec5() throws FunctionalException {
@@ -213,7 +235,8 @@ public class ComptabiliteManagerImplTest extends AbstractBusinessManager{
     }
 
     /**
-     * code journal incorrect
+     * teste que la référence vérifie le journal comptable
+     * code journal incorrect donc lance exception
      * @throws FunctionalException
      */
     @Test(expected = FunctionalException.class)
@@ -227,8 +250,8 @@ public class ComptabiliteManagerImplTest extends AbstractBusinessManager{
         manager.RG_5_formatCorrect(ec);
     }
 
-    /**
-     * année référence incorrecte
+    /**teste que la référence indique l'année correcte
+     * année référence incorrecte, renvoie une exception
      * @throws FunctionalException
      */
     @Test(expected = FunctionalException.class)
@@ -242,6 +265,9 @@ public class ComptabiliteManagerImplTest extends AbstractBusinessManager{
         manager.RG_5_formatCorrect(ec);
     }
 
+    /**
+     * teste le renvoi d'une liste de comptes comptables
+     */
     @Test
     public void getListCompteComptable() {
         when(getDaoProxy().getComptabiliteDao().getListCompteComptable()).thenReturn(Arrays.asList(cc1, cc2, cc3, cc4));
@@ -250,6 +276,9 @@ public class ComptabiliteManagerImplTest extends AbstractBusinessManager{
 
     }
 
+    /**
+     * teste le renvoi d'une liste de journaux comptables
+     */
     @Test
     public void getListJournalComptable() {
         when(getDaoProxy().getComptabiliteDao().getListJournalComptable()).thenReturn(Arrays.asList(jc1, jc2, jc3));
@@ -258,6 +287,9 @@ public class ComptabiliteManagerImplTest extends AbstractBusinessManager{
 
     }
 
+    /**
+     * teste le renvoi d'une liste d'écriture comptable
+     */
     @Test
     public void getListEcritureComptable() {
         when(getDaoProxy().getComptabiliteDao().getListEcritureComptable()).thenReturn(Arrays.asList(ec1,ec2, ec3));
@@ -270,6 +302,11 @@ public class ComptabiliteManagerImplTest extends AbstractBusinessManager{
         Assert.assertEquals("OD-2019/00004", manager.buildReference(manager.getYear(ec5.getDate()), ec5.getJournal().getCode(), 4));
     }
 
+    /**
+     * renvoie ec1 après requête au Dao de récupérer l'écriture comptable par la référence. Renvoie une exception car la référence existe
+     * @throws NotFoundException
+     * @throws FunctionalException
+     */
     @Test(expected = FunctionalException.class)
     public void checkEcritureComptableContextIfRefExists () throws NotFoundException, FunctionalException {
 
@@ -285,8 +322,8 @@ public class ComptabiliteManagerImplTest extends AbstractBusinessManager{
     }
 
     /**
-     * teste
-     *  extends AbstractBusinessManager afin de mocker la methode getDaoProxy
+     * trouve la référence mais l'id est différente. Renvoie une exception
+     * extends AbstractBusinessManager afin de mocker la methode getDaoProxy
      * @throws NotFoundException
      * @throws FunctionalException
      */
@@ -305,6 +342,11 @@ public class ComptabiliteManagerImplTest extends AbstractBusinessManager{
 
     }
 
+    /**
+     * l'Id est le même et il trouve la référence donc tout est OK
+     * @throws FunctionalException
+     * @throws NotFoundException
+     */
     @Test
     public void checkEcritureComptableContextOK() throws FunctionalException, NotFoundException{
         EcritureComptable ec = new EcritureComptable();
@@ -316,24 +358,11 @@ public class ComptabiliteManagerImplTest extends AbstractBusinessManager{
     }
 
     /**
-     * vérifie que la méthode updateEcritureComptable du mock est bien appelée une fois
+     * Le teste passe à travers toutes les méthodes qui aidenet à ajouter une référence à l'écriture comptable
+     * @throws NotFoundException
+     * @throws TechnicalException
+     * @throws FunctionalException
      */
- //  @Test
- //  public void updateEcritureComptable() throws FunctionalException{
- //      ec1.setDate(new Date());
- //      manager.updateEcritureComptable(ec1);
- //      verify(comptabiliteDao, times(1)).updateEcritureComptable(ec1);
-
- //  }
-
- //  @Test
- //  public void deleteEcritureComptable(){
-
- //      comptabiliteDao.deleteEcritureComptable(2);
- //      verify(comptabiliteDao, times(1)).deleteEcritureComptable(2);
-
- //x       }
-
     @Test
     public void addReference() throws NotFoundException, TechnicalException, FunctionalException {
         String year = Integer.toString(LocalDateTime.now().getYear());
@@ -346,6 +375,10 @@ public class ComptabiliteManagerImplTest extends AbstractBusinessManager{
 
     }
 
+    /**
+     * test la méthode checkEcritureComptableUnit et lance une exception car ec1 n'est pas équilibrée. Le teste vérifie que la méthode a été appelée
+     * @throws FunctionalException
+     */
     @Test(expected = FunctionalException.class)
     public void checkEcritureComptableUnit()throws FunctionalException{
 
