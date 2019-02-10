@@ -82,19 +82,14 @@ public class ComptabiliteManagerImplTest extends AbstractBusinessManager{
     JournalComptable jc2 = new JournalComptable (	"VE",	"Vente"	);
     JournalComptable jc3 = new JournalComptable (	"BQ",	"Banque"	);
     JournalComptable jc4 = new JournalComptable (	"OD",	"Opérations Diverses"	);
-    JournalComptable jc5 = new JournalComptable (	"TE",	"jc test"	);
 
     SequenceEcritureComptable sec1 = new SequenceEcritureComptable (2017,	40, "AC");
     SequenceEcritureComptable sec2 = new SequenceEcritureComptable (2017,	41, "VE");
-    SequenceEcritureComptable sec3 = new SequenceEcritureComptable (2018,	51, ""	);
-    SequenceEcritureComptable sec4 = new SequenceEcritureComptable (2018,	88, ""	);
 
     EcritureComptable ec1 = new EcritureComptable (	1,	jc1,	"AC-2016/00001",	new Date(),	"Cartouches d’imprimante"	);
     EcritureComptable ec2 = new EcritureComptable (	2,	jc2,	"BQ-2018/00002",	new Date(),	"TMA Appli Xxx");
     EcritureComptable ec3 = new EcritureComptable (	3,	jc3,	"BQ-2018/00003",	new Date(),	"Paiement Facture F110001");
-    EcritureComptable ec4 = new EcritureComptable (	4,	jc2,	"VE-2018/00004",	new Date(),	"TMA Appli Yyy");
     EcritureComptable ec5 = new EcritureComptable (	5,	jc4,	"OD-2019/00005",	new Date(),	"Paiement Facture C110002");
-    EcritureComptable ec6 = new EcritureComptable ( 6,  jc5,    "TE-2018/00006",   new Date(), "ec test");
 
    @Test
    public void checkEcritureComptableUnitWhenNoViolation() throws Exception {
@@ -337,12 +332,22 @@ public class ComptabiliteManagerImplTest extends AbstractBusinessManager{
         manager.checkEcritureComptableContext(ec);
     }
 
-
+    /**
+     * vérifie que la méthode updateEcritureComptable du mock est bien appelée une fois
+     */
     @Test
     public void updateEcritureComptable(){
         ec1.setDate(new Date());
         comptabiliteDao.updateEcritureComptable(ec1);
+        verify(comptabiliteDao, times(1)).updateEcritureComptable(ec1);
 
+    }
+
+    @Test
+    public void deleteEcritureComptable(){
+
+        comptabiliteDao.deleteEcritureComptable(2);
+        verify(comptabiliteDao, times(1)).deleteEcritureComptable(2);
 
     }
 

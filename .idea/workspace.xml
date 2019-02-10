@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8179c5fe-066f-4b3d-a147-ce2a8e5e9fe8" name="Default" comment="tested model classes">
+    <list default="true" id="8179c5fe-066f-4b3d-a147-ce2a8e5e9fe8" name="Default" comment="tested totalCredit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/myerp-model/src/test/java/com/dummy/myerp/model/bean/comptabilite/EcritureComptableTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/myerp-model/src/test/java/com/dummy/myerp/model/bean/comptabilite/EcritureComptableTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/myerp-business/src/test/java/com/dummy/myerp/business/impl/manager/ComptabiliteManagerImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/myerp-business/src/test/java/com/dummy/myerp/business/impl/manager/ComptabiliteManagerImplTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/src/myerp-consumer/target/" />
     <ignored path="$PROJECT_DIR$/src/myerp-business/target/" />
@@ -140,15 +139,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/myerp-business/src/test-business/java/com/dummy/myerp/testbusiness/business/TestInitSpring.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/myerp-consumer/src/main/java/com/dummy/myerp/consumer/dao/impl/db/rowmapper/comptabilite/LigneEcritureComptableRM.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
@@ -203,11 +193,48 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/myerp-model/src/test/java/com/dummy/myerp/model/bean/comptabilite/EcritureComptableTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="370">
               <caret line="100" column="69" selection-start-line="100" selection-start-column="69" selection-end-line="100" selection-end-column="69" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/myerp-business/src/main/java/com/dummy/myerp/business/impl/manager/ComptabiliteManagerImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2571">
+              <caret line="20" column="23" lean-forward="true" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+              <folding>
+                <element signature="method#addReference#0;class#ComptabiliteManagerImpl#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/myerp-business/src/test/java/com/dummy/myerp/business/impl/manager/ComptabiliteManagerImplTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="347" column="8" selection-start-line="347" selection-start-column="8" selection-end-line="347" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/myerp-business/src/main/java/com/dummy/myerp/business/impl/AbstractBusinessManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="394">
+              <caret line="59" column="29" lean-forward="true" selection-start-line="59" selection-start-column="29" selection-end-line="59" selection-end-column="29" />
+              <folding>
+                <element signature="e#1660#1661#0" expanded="true" />
+                <element signature="e#1691#1692#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -220,28 +247,6 @@
                 <caret line="46" selection-start-line="46" selection-end-line="46" />
               </first_editor>
               <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/myerp-business/src/main/java/com/dummy/myerp/business/impl/TransactionManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="14" column="34" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/myerp-business/src/test/java/com/dummy/myerp/consumer/dao/impl/db/dao/DaoProxyMock.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="7" column="44" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
-              <folding>
-                <element signature="e#509#510#0" expanded="true" />
-                <element signature="e#547#548#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -331,11 +336,11 @@
         <option value="$PROJECT_DIR$/src/myerp-consumer/src/test/java/com/dummy/myerp/consumer/dao/impl/db/rowmapper/comptabilite/CompteComptableRMTest.java" />
         <option value="$PROJECT_DIR$/src/myerp-model/src/test/java/com/dummy/myerp/model/bean/comptabilite/CompteComptableTest.java" />
         <option value="$PROJECT_DIR$/src/myerp-model/src/test/java/com/dummy/myerp/model/bean/comptabilite/JournalComptableTest.java" />
-        <option value="$PROJECT_DIR$/src/myerp-business/src/test/java/com/dummy/myerp/business/impl/manager/ComptabiliteManagerImplTest.java" />
         <option value="$PROJECT_DIR$/src/myerp-model/src/test/java/com/dummy/myerp/model/bean/comptabilite/LigneEcritureComptableTest.java" />
         <option value="$PROJECT_DIR$/src/myerp-model/src/test/java/com/dummy/myerp/model/bean/comptabilite/SequenceEcritureComptableTest.java" />
         <option value="$PROJECT_DIR$/src/myerp-model/src/test/java/com/dummy/myerp/model/bean/comptabilite/EcritureComptableTest.java" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/myerp-business/src/test/java/com/dummy/myerp/business/impl/manager/ComptabiliteManagerImplTest.java" />
       </list>
     </option>
   </component>
@@ -846,7 +851,7 @@
     <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549752410567" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549787656554" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="PostgreSQL" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
@@ -900,7 +905,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.EcritureComptableTest.getTotalCreditTest">
+  <component name="RunManager" selected="JUnit.ComptabiliteManagerImplTest.deleteEcritureComptable">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -922,19 +927,35 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in myerp-business" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ComptabiliteManagerImplTest.deleteEcritureComptable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="myerp-business" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.dummy.myerp.business.impl.manager.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.dummy.myerp.business.impl.manager" />
+      <option name="MAIN_CLASS_NAME" value="com.dummy.myerp.business.impl.manager.ComptabiliteManagerImplTest" />
+      <option name="METHOD_NAME" value="deleteEcritureComptable" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in myerp-consumer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="myerp-consumer" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
+    <configuration name="ComptabiliteManagerImplTest.updateEcritureComptable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="myerp-business" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.dummy.myerp.business.impl.manager.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.dummy.myerp.business.impl.manager" />
+      <option name="MAIN_CLASS_NAME" value="com.dummy.myerp.business.impl.manager.ComptabiliteManagerImplTest" />
+      <option name="METHOD_NAME" value="updateEcritureComptable" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -1028,19 +1049,19 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.com.dummy.myerp.model.bean.comptabilite in myerp-model" />
-      <item itemvalue="JUnit.All in myerp-business" />
-      <item itemvalue="JUnit.All in myerp-consumer" />
       <item itemvalue="JUnit.SequenceEcritureComptableTest" />
       <item itemvalue="JUnit.All in myerp-business (1)" />
       <item itemvalue="JUnit.EcritureComptableTest.getTotalCreditTest" />
+      <item itemvalue="JUnit.ComptabiliteManagerImplTest.updateEcritureComptable" />
+      <item itemvalue="JUnit.ComptabiliteManagerImplTest.deleteEcritureComptable" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ComptabiliteManagerImplTest.deleteEcritureComptable" />
+        <item itemvalue="JUnit.ComptabiliteManagerImplTest.updateEcritureComptable" />
         <item itemvalue="JUnit.EcritureComptableTest.getTotalCreditTest" />
         <item itemvalue="JUnit.All in myerp-business (1)" />
         <item itemvalue="JUnit.SequenceEcritureComptableTest" />
-        <item itemvalue="JUnit.All in myerp-consumer" />
-        <item itemvalue="JUnit.All in myerp-business" />
       </list>
     </recent_temporary>
   </component>
@@ -1076,14 +1097,7 @@
       <workItem from="1547816409545" duration="15894000" />
       <workItem from="1548066193732" duration="1977000" />
       <workItem from="1548069883182" duration="10122000" />
-      <workItem from="1549306555585" duration="70730000" />
-    </task>
-    <task id="LOCAL-00012" summary="connexion à docker réussi">
-      <created>1541362797556</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1541362797556</updated>
+      <workItem from="1549306555585" duration="71750000" />
     </task>
     <task id="LOCAL-00013" summary="added .travis.yml">
       <created>1547125175088</created>
@@ -1421,16 +1435,17 @@
       <option name="project" value="LOCAL" />
       <updated>1549751426897</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="tested totalCredit">
+      <created>1549752437192</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1549752437192</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="LigneEcritureComptableTest - 2019.02.09 at 22h 49m 55s.xml">
-      <configuration name="LigneEcritureComptableTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="LigneEcritureComptableTest_toStringTest - 2019.02.09 at 22h 51m 04s.xml">
-      <configuration name="LigneEcritureComptableTest.toStringTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="LigneEcritureComptableTest_toStringTest - 2019.02.09 at 22h 51m 31s.xml">
       <configuration name="LigneEcritureComptableTest.toStringTest" configurationId="JUnit" />
     </history-entry>
@@ -1455,9 +1470,15 @@
     <history-entry file="All_in_myerp-business_(1) - 2019.02.09 at 23h 38m 29s.xml">
       <configuration name="All in myerp-business (1)" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="EcritureComptableTest_getTotalCreditTest - 2019.02.09 at 23h 46m 54s.xml">
+      <configuration name="EcritureComptableTest.getTotalCreditTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ComptabiliteManagerImplTest_updateEcritureComptable - 2019.02.10 at 09h 27m 17s.xml">
+      <configuration name="ComptabiliteManagerImplTest.updateEcritureComptable" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="347812000" />
+    <option name="totallyTimeSpent" value="348832000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1472,7 +1493,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2832618" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1795422" />
       <window_info id="Structure" order="1" weight="0.24964234" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -1508,14 +1529,13 @@
       <window_info anchor="right" x="100" y="100" width="1240" height="700" id="Documentation" order="10" sideWeight="0.5010352" side_tool="true" weight="0.3297568" />
       <window_info anchor="right" id="Module Dependencies" order="11" weight="0.3297568" />
       <window_info anchor="right" id="Maven" order="12" weight="0.22174536" />
-      <window_info anchor="right" id="Coverage" order="13" side_tool="true" visible="true" weight="0.22889842" />
+      <window_info anchor="right" id="Coverage" order="13" side_tool="true" weight="0.22889842" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="changed some travis feat. for codecov" />
     <MESSAGE value="added TODO getTotalDebit" />
     <MESSAGE value="commented out all tests not working" />
     <MESSAGE value="removed fixtures" />
@@ -1540,7 +1560,8 @@
     <MESSAGE value="tested get... methods" />
     <MESSAGE value="tested soe more methods 60%" />
     <MESSAGE value="tested model classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="tested model classes" />
+    <MESSAGE value="tested totalCredit" />
+    <option name="LAST_COMMIT_MESSAGE" value="tested totalCredit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1890,27 +1911,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/myerp-business/src/main/java/com/dummy/myerp/business/impl/manager/ComptabiliteManagerImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1907">
-          <caret line="228" column="63" selection-start-line="228" selection-start-column="63" selection-end-line="228" selection-end-column="63" />
-          <folding>
-            <element signature="method#addReference#0;class#ComptabiliteManagerImpl#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/myerp-business/src/main/java/com/dummy/myerp/business/impl/AbstractBusinessManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="59" column="29" lean-forward="true" selection-start-line="59" selection-start-column="29" selection-end-line="59" selection-end-column="29" />
-          <folding>
-            <element signature="e#1660#1661#0" expanded="true" />
-            <element signature="e#1691#1692#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/myerp-business/src/main/java/com/dummy/myerp/business/impl/BusinessProxyImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-377">
@@ -1922,16 +1922,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/myerp-business/src/test/java/com/dummy/myerp/business/impl/manager/ComptabiliteManagerImplTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-183">
-          <caret line="59" column="102" lean-forward="true" selection-start-line="59" selection-start-column="4" selection-end-line="59" selection-end-column="102" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2026,6 +2016,37 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="370">
           <caret line="100" column="69" selection-start-line="100" selection-start-column="69" selection-end-line="100" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/myerp-business/src/main/java/com/dummy/myerp/business/impl/AbstractBusinessManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="59" column="29" lean-forward="true" selection-start-line="59" selection-start-column="29" selection-end-line="59" selection-end-column="29" />
+          <folding>
+            <element signature="e#1660#1661#0" expanded="true" />
+            <element signature="e#1691#1692#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/myerp-business/src/main/java/com/dummy/myerp/business/impl/manager/ComptabiliteManagerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2571">
+          <caret line="20" column="23" lean-forward="true" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+          <folding>
+            <element signature="method#addReference#0;class#ComptabiliteManagerImpl#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/myerp-business/src/test/java/com/dummy/myerp/business/impl/manager/ComptabiliteManagerImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="347" column="8" selection-start-line="347" selection-start-column="8" selection-end-line="347" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
