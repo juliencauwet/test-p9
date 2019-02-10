@@ -54,7 +54,12 @@ public class LigneEcritureComptableTest {
 
     @Test
     public void toStringTest() {
-        Assert.assertEquals("LigneEcritureComptable{compteComptable=CompteComptable{numero=706, libelle='Prestations de services'}, libelle='ligne test', debit=2, credit=null}", lec.toString());
+        LigneEcritureComptable lec = new LigneEcritureComptable();
+        lec.setCompteComptable(cc6);
+        lec.setLibelle("test");
+        lec.setCredit(new BigDecimal(10));
+        lec.setDebit(new BigDecimal(12));
+        Assert.assertEquals("LigneEcritureComptable{compteComptable=CompteComptable{numero=606, libelle='Achats non stockés de matières et fournitures'}, libelle='test', debit=12, credit=10}", lec.toString());
 
     }
 }

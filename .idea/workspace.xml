@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8179c5fe-066f-4b3d-a147-ce2a8e5e9fe8" name="Default" comment="some changes">
+    <list default="true" id="8179c5fe-066f-4b3d-a147-ce2a8e5e9fe8" name="Default" comment="added some java doc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/myerp-business/src/test/java/com/dummy/myerp/business/impl/manager/ComptabiliteManagerImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/myerp-business/src/test/java/com/dummy/myerp/business/impl/manager/ComptabiliteManagerImplTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/src/myerp-consumer/target/" />
     <ignored path="$PROJECT_DIR$/src/myerp-business/target/" />
@@ -854,7 +853,7 @@
     <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549804744839" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549807146611" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="PostgreSQL" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
@@ -908,7 +907,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ComptabiliteManagerImplTest.checkEcritureComptableUnit">
+  <component name="RunManager" selected="JUnit.LigneEcritureComptableTest.toStringTest">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -917,15 +916,6 @@
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="All in myerp-business (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="myerp-business" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -967,6 +957,23 @@
       <option name="PACKAGE_NAME" value="com.dummy.myerp.business.impl.manager" />
       <option name="MAIN_CLASS_NAME" value="com.dummy.myerp.business.impl.manager.ComptabiliteManagerImplTest" />
       <option name="METHOD_NAME" value="updateEcritureComptable" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LigneEcritureComptableTest.toStringTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="myerp-model" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.dummy.myerp.model.bean.comptabilite.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.dummy.myerp.model.bean.comptabilite" />
+      <option name="MAIN_CLASS_NAME" value="com.dummy.myerp.model.bean.comptabilite.LigneEcritureComptableTest" />
+      <option name="METHOD_NAME" value="toStringTest" />
       <option name="TEST_OBJECT" value="method" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <method v="2">
@@ -1047,18 +1054,18 @@
     <list>
       <item itemvalue="JUnit.com.dummy.myerp.model.bean.comptabilite in myerp-model" />
       <item itemvalue="JUnit.TestInitSpring.testInit" />
-      <item itemvalue="JUnit.All in myerp-business (1)" />
       <item itemvalue="JUnit.All in myerp-business (2)" />
       <item itemvalue="JUnit.ComptabiliteManagerImplTest.updateEcritureComptable" />
       <item itemvalue="JUnit.ComptabiliteManagerImplTest.checkEcritureComptableUnit" />
+      <item itemvalue="JUnit.LigneEcritureComptableTest.toStringTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LigneEcritureComptableTest.toStringTest" />
         <item itemvalue="JUnit.ComptabiliteManagerImplTest.checkEcritureComptableUnit" />
         <item itemvalue="JUnit.ComptabiliteManagerImplTest.updateEcritureComptable" />
         <item itemvalue="JUnit.All in myerp-business (2)" />
         <item itemvalue="JUnit.TestInitSpring.testInit" />
-        <item itemvalue="JUnit.All in myerp-business (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -1094,14 +1101,7 @@
       <workItem from="1547816409545" duration="15894000" />
       <workItem from="1548066193732" duration="1977000" />
       <workItem from="1548069883182" duration="10122000" />
-      <workItem from="1549306555585" duration="82349000" />
-    </task>
-    <task id="LOCAL-00018" summary="changed travis">
-      <created>1547494825292</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1547494825292</updated>
+      <workItem from="1549306555585" duration="82966000" />
     </task>
     <task id="LOCAL-00019" summary="changed travis">
       <created>1547495023725</created>
@@ -1439,7 +1439,14 @@
       <option name="project" value="LOCAL" />
       <updated>1549802182901</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="added some java doc">
+      <created>1549805539930</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1549805539930</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1475,7 +1482,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="359431000" />
+    <option name="totallyTimeSpent" value="360048000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1533,7 +1540,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="JC test" />
     <MESSAGE value="removed spring context duplicate" />
     <MESSAGE value="removed dbcp2 duplicate" />
     <MESSAGE value="travis file modified" />
@@ -1558,7 +1564,8 @@
     <MESSAGE value="test getByCode" />
     <MESSAGE value="changed update" />
     <MESSAGE value="some changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="some changes" />
+    <MESSAGE value="added some java doc" />
+    <option name="LAST_COMMIT_MESSAGE" value="added some java doc" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
