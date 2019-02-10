@@ -290,15 +290,6 @@ public class ComptabiliteDaoImpl extends AbstractDbConsumer implements Comptabil
         return vBean;
     }
 
-    //essai
- //  public List<SequenceEcritureComptable> getSequenceEcritureComptable() {
- //      JdbcTemplate vJdbcTemplate = new JdbcTemplate(this.getDataSource(DataSourcesEnum.MYERP));
- //      SequenceEcritureComptableRM vRM = new SequenceEcritureComptableRM();
- //      List<SequenceEcritureComptable> vList = vJdbcTemplate.query(SQLgetListEcritureComptable, vRM);
- //      return vList;
- //  }
-
-
 
 
 

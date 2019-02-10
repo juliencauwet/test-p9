@@ -36,9 +36,6 @@ public class ComptabiliteManagerImplTest extends AbstractBusinessManager{
     @Mock
     ComptabiliteDaoMock comptabiliteDao;
 
-    @Mock
-    TransactionStatus status;
-
     @BeforeClass
     public static void setUp() {
         ComptabiliteDao comptabiliteDao=Mockito.mock(ComptabiliteDao.class);
