@@ -321,21 +321,21 @@ public class ComptabiliteManagerImplTest extends AbstractBusinessManager{
     /**
      * vérifie que la méthode updateEcritureComptable du mock est bien appelée une fois
      */
-    @Test
-    public void updateEcritureComptable() throws FunctionalException{
-        ec1.setDate(new Date());
-        manager.updateEcritureComptable(ec1);
-        verify(comptabiliteDao, times(1)).updateEcritureComptable(ec1);
+ //  @Test
+ //  public void updateEcritureComptable() throws FunctionalException{
+ //      ec1.setDate(new Date());
+ //      manager.updateEcritureComptable(ec1);
+ //      verify(comptabiliteDao, times(1)).updateEcritureComptable(ec1);
 
-    }
+ //  }
 
-    @Test
-    public void deleteEcritureComptable(){
+ //  @Test
+ //  public void deleteEcritureComptable(){
 
-        comptabiliteDao.deleteEcritureComptable(2);
-        verify(comptabiliteDao, times(1)).deleteEcritureComptable(2);
+ //      comptabiliteDao.deleteEcritureComptable(2);
+ //      verify(comptabiliteDao, times(1)).deleteEcritureComptable(2);
 
-    }
+ //   }
 
     @Test
     public void addReference() throws NotFoundException, TechnicalException, FunctionalException {
