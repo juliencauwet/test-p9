@@ -92,7 +92,7 @@
 
 
 
-    <!--  TODO modifier la requête convenablement -->
+
         <property name="SQLgetSequenceEcritureComptableByYearAndCode">
             <value>
 

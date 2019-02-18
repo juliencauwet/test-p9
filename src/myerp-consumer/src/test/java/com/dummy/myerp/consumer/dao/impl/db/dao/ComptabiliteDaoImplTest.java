@@ -48,24 +48,38 @@ public class ComptabiliteDaoImplTest {
 
     }
 
+    /**
+     * récupère l'ensemble des comptes comptables et vérifie qu'il y en a 7 (comme en base de données)
+     */
     @Test
     public void checkListCompteComptableSize() {
         List<CompteComptable> ccs = comptabiliteDao.getListCompteComptable();
         Assert.assertEquals(7, ccs.size());
     }
 
+    /**
+     * récupère l'ensemble des journaux comptables et vérifie qu'il y en a 4 (comme en base de données)
+     */
     @Test
     public void getListJournalComptableTest() {
         List<JournalComptable> jcs = comptabiliteDao.getListJournalComptable();
         Assert.assertEquals(4, jcs.size());
     }
 
+    /**
+     * récupère l'ensemble des écritures comptables et vérifie qu'il y en a 4 (comme en base de données)
+     */
     @Test
     public void getListEcritureComptableTest() {
         List<EcritureComptable> ecs = comptabiliteDao.getListEcritureComptable();
         Assert.assertEquals(4, ecs.size());
     }
 
+    /**
+     * vérifie que l'écriture recherchée a la bonne référence
+     * @throws NotFoundException
+     * @throws ParseException
+     */
     @Test
     public void getEcritureComptableTest() throws NotFoundException, ParseException {
 
@@ -73,6 +87,10 @@ public class ComptabiliteDaoImplTest {
         Assert.assertEquals(ec.getReference(), "VE-2016/00002");
     }
 
+    /**
+     *
+     * @throws NotFoundException
+     */
     @Test
     public void getEcritureComptableByRefTest() throws NotFoundException {
 

@@ -39,7 +39,6 @@ public class ComptabiliteManagerImplTest extends AbstractBusinessManager{
     public static void setUp() {
         ComptabiliteDao comptabiliteDao=Mockito.mock(ComptabiliteDao.class);
         DaoProxy daoProxy = new DaoProxyMock(comptabiliteDao);
-        ComptabiliteDaoMock comptabiliteDaoMock=new ComptabiliteDaoMock();
         ComptabiliteManagerImpl.configure(null, daoProxy, null);
     }
 
@@ -48,17 +47,6 @@ public class ComptabiliteManagerImplTest extends AbstractBusinessManager{
     CompteComptable cc2 = new CompteComptable(411,	"Clients"	);
     CompteComptable cc3 = new CompteComptable(4456,"Taxes sur le chiffre d'affaires déductibles"	);
     CompteComptable cc4 = new CompteComptable(4457,"Taxes sur le chiffre d'affaires collectées par l'entreprise"	);
-    CompteComptable cc5 = new CompteComptable(512,	"Banque"	);
-    CompteComptable cc6 = new CompteComptable(606,	"Achats non stockés de matières et fournitures"	);
-    CompteComptable cc7 = new CompteComptable(706,	"Prestations de services"	);
-    CompteComptable cc8 = new CompteComptable(1);
-    CompteComptable cc9 = new CompteComptable(2);
-
-    LigneEcritureComptable lec1 = new LigneEcritureComptable (	cc1,"Cartouches d’imprimante", new BigDecimal(43.95),	null	);
-    LigneEcritureComptable lec2 = new LigneEcritureComptable (	cc1,"TVA 20%",	new BigDecimal(8.79),	null	);
-    LigneEcritureComptable lec3 = new LigneEcritureComptable (	cc2,"Facture F110001",	null,	new BigDecimal(52.74)	);
-    LigneEcritureComptable lec4 = new LigneEcritureComptable (	cc2,"Facture C110002",	new BigDecimal(3000),	null	);
-    LigneEcritureComptable lec5 = new LigneEcritureComptable (	cc2,"Créance",	null,	new BigDecimal(3000)	);
 
     JournalComptable jc1 = new JournalComptable (	"AC",	"Achat"	);
     JournalComptable jc2 = new JournalComptable (	"VE",	"Vente"	);
@@ -363,6 +351,7 @@ public class ComptabiliteManagerImplTest extends AbstractBusinessManager{
      * @throws TechnicalException
      * @throws FunctionalException
      */
+    //JournalComptable jc1 = new JournalComptable (	"AC",	"Achat"	);
     @Test
     public void addReference() throws NotFoundException, TechnicalException, FunctionalException {
         String year = Integer.toString(LocalDateTime.now().getYear());

@@ -265,7 +265,7 @@ public class ComptabiliteDaoImpl extends AbstractDbConsumer implements Comptabil
     }
 
 
-    // TODO: à tester
+
 
     /** SQLgetSequenceEcritureComptableByYearAndCode */
     private static String SQLgetSequenceEcritureComptableByYearAndCode;
