@@ -106,6 +106,10 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
         newSeq.setAnnee(Integer.parseInt(annee));
         newSeq.setCode(pEcritureComptable.getJournal().getCode());
 
+        if(valeur == 1)
+            getDaoProxy().getComptabiliteDao().insertSequenceEcritureComptable(newSeq);
+
+
     }
 
 

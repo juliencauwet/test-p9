@@ -11,6 +11,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -160,6 +161,24 @@ public class ComptabiliteDaoImplTest {
     public  void getSQLgetSequenceEcritureComptableByYearAndCodeTest()throws  NotFoundException{
         List<SequenceEcritureComptable>sec = comptabiliteDao.getSQLgetSequenceEcritureComptableByYearAndCode("AC", 2016);
         Assert.assertEquals(1 ,sec.size() );
+    }
+
+    @Test
+    public void insertSequenceEcritureComptable(){
+        SequenceEcritureComptable sequenceEcritureComptable = new SequenceEcritureComptable();
+        sequenceEcritureComptable.setCode("AC");
+        sequenceEcritureComptable.setAnnee(2001);
+        sequenceEcritureComptable.setDerniereValeur(12);
+        comptabiliteDao.insertSequenceEcritureComptable(sequenceEcritureComptable);
+    }
+
+    @Test
+    public void updateSequenceEcritureComptable(){
+        SequenceEcritureComptable sequenceEcritureComptable = new SequenceEcritureComptable();
+        sequenceEcritureComptable.setCode("AC");
+        sequenceEcritureComptable.setAnnee(2000);
+        sequenceEcritureComptable.setDerniereValeur(18);
+        comptabiliteDao.updateSequenceEcritureComptable(sequenceEcritureComptable);
     }
 
 
