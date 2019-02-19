@@ -364,6 +364,18 @@ public class ComptabiliteManagerImplTest extends AbstractBusinessManager{
 
     }
 
+    @Test
+    public void addReferenceIfCreationOfSequence() throws NotFoundException, TechnicalException, FunctionalException {
+        String year = Integer.toString(LocalDateTime.now().getYear());
+        when(getDaoProxy().getComptabiliteDao().getSQLgetSequenceEcritureComptableByYearAndCode(anyString(), anyInt())).thenReturn(new ArrayList<>());
+        EcritureComptable ec = new EcritureComptable();
+        ec.setDate(new Date());
+        ec.setJournal(jc1);
+        manager.addReference(ec);
+        Assert.assertEquals("AC-"+ year + "/00001", ec.getReference());
+
+    }
+
     /**
      * test la méthode checkEcritureComptableUnit et lance une exception car ec1 n'est pas équilibrée. Le teste vérifie que la méthode a été appelée
      * @throws FunctionalException
