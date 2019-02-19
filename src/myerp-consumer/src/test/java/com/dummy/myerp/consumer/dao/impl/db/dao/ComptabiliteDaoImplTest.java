@@ -170,6 +170,7 @@ public class ComptabiliteDaoImplTest {
         sequenceEcritureComptable.setAnnee(2001);
         sequenceEcritureComptable.setDerniereValeur(12);
         comptabiliteDao.insertSequenceEcritureComptable(sequenceEcritureComptable);
+        comptabiliteDao.deleteSequenceEcritureComptable(sequenceEcritureComptable);
     }
 
     @Test
@@ -179,6 +180,8 @@ public class ComptabiliteDaoImplTest {
         sequenceEcritureComptable.setAnnee(2016);
         sequenceEcritureComptable.setDerniereValeur(18);
         comptabiliteDao.updateSequenceEcritureComptable(sequenceEcritureComptable);
+        sequenceEcritureComptable.setDerniereValeur(40);
+        comptabiliteDao.updateSequenceEcritureComptable(sequenceEcritureComptable);
     }
 
     @Test
@@ -187,28 +190,8 @@ public class ComptabiliteDaoImplTest {
         sequenceEcritureComptable.setCode("BQ");
         sequenceEcritureComptable.setAnnee(2016);
         comptabiliteDao.deleteSequenceEcritureComptable(sequenceEcritureComptable);
+        sequenceEcritureComptable.setDerniereValeur(51);
+        comptabiliteDao.insertSequenceEcritureComptable(sequenceEcritureComptable);
     }
 
-
-
-    @After
-    public void afterTest(){}{
-        SequenceEcritureComptable sequenceToDelete = new SequenceEcritureComptable();
-        sequenceToDelete.setAnnee(2001);
-        sequenceToDelete.setCode("AC");
-        comptabiliteDao.deleteSequenceEcritureComptable(sequenceToDelete);
-
-        SequenceEcritureComptable sequenceToChangeBack = new SequenceEcritureComptable();
-        sequenceToChangeBack.setCode("AC");
-        sequenceToChangeBack.setAnnee(2016);
-        sequenceToChangeBack.setDerniereValeur(40);
-        comptabiliteDao.updateSequenceEcritureComptable(sequenceToChangeBack);
-
-        SequenceEcritureComptable sequenceToRetrieve = new SequenceEcritureComptable();
-        sequenceToRetrieve.setCode("BQ");
-        sequenceToRetrieve.setAnnee(2016);
-        sequenceToRetrieve.setDerniereValeur(51);
-
-
-    }
 }
