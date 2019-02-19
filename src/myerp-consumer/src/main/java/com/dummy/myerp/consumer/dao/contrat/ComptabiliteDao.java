@@ -86,4 +86,20 @@ public interface ComptabiliteDao {
     List<SequenceEcritureComptable> getSQLgetSequenceEcritureComptableByYearAndCode(String code, int year) throws NotFoundException;
 
     //void loadListSequenceEcritureComptable(String code, int annee);
+
+    /**
+     * Met à jour l'écriture comptable
+     * @param sequence
+     */
+
+    void updateSequenceEcritureComptable(SequenceEcritureComptable sequence);
+
+
+    /**
+     * Supprime la séquence de l'écriture comptable.
+     *
+     * @param sequence
+     */
+    void deleteSequenceEcritureComptable(SequenceEcritureComptable sequence);
+
 }

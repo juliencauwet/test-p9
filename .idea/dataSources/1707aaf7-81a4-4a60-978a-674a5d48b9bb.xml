@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="MYERP@localhost">
+  <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.14">
+    <root id="1">
+      <ServerVersion>10.5</ServerVersion>
+    </root>
+    <database id="2" parent="1" name="MYERP">
+      <ObjectId>43691</ObjectId>
+      <Owner>julien</Owner>
+      <IntrospectionStateNumber>115</IntrospectionStateNumber>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </database>
+    <database id="3" parent="1" name="biblioweb">
+      <ObjectId>23823</ObjectId>
+      <Owner>julien</Owner>
+    </database>
+    <database id="4" parent="1" name="climbers">
+      <ObjectId>16446</ObjectId>
+      <Owner>julien</Owner>
+    </database>
+    <database id="5" parent="1" name="concretepage">
+      <ObjectId>43533</ObjectId>
+      <Owner>julien</Owner>
+    </database>
+    <database id="6" parent="1" name="javaee">
+      <ObjectId>16392</ObjectId>
+      <Owner>julien</Owner>
+    </database>
+    <database id="7" parent="1" name="placedumarche">
+      <ObjectId>16584</ObjectId>
+      <Owner>julien</Owner>
+    </database>
+    <database id="8" parent="1" name="postgres">
+      <ObjectId>12558</ObjectId>
+      <Comment>default administrative connection database</Comment>
+      <Owner>julien</Owner>
+    </database>
+    <database id="9" parent="1" name="voixlibre">
+      <ObjectId>17289</ObjectId>
+      <Owner>julien</Owner>
+    </database>
+    <database id="10" parent="1" name="wstest">
+      <ObjectId>23885</ObjectId>
+      <Owner>julien</Owner>
+    </database>
+    <role id="11" parent="1" name="julien">
+      <ObjectId>10</ObjectId>
+      <SuperRole>1</SuperRole>
+      <Inherit>1</Inherit>
+      <CreateRole>1</CreateRole>
+      <CreateDb>1</CreateDb>
+      <CanLogin>1</CanLogin>
+      <Replication>1</Replication>
+      <ConnectionLimit>-1</ConnectionLimit>
+      <BypassRls>1</BypassRls>
+    </role>
+    <role id="12" parent="1" name="pg_monitor">
+      <ObjectId>3373</ObjectId>
+      <Inherit>1</Inherit>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="13" parent="1" name="pg_read_all_settings">
+      <ObjectId>3374</ObjectId>
+      <Inherit>1</Inherit>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="14" parent="1" name="pg_read_all_stats">
+      <ObjectId>3375</ObjectId>
+      <Inherit>1</Inherit>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="15" parent="1" name="pg_signal_backend">
+      <ObjectId>4200</ObjectId>
+      <Inherit>1</Inherit>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="16" parent="1" name="pg_stat_scan_tables">
+      <ObjectId>3377</ObjectId>
+      <Inherit>1</Inherit>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <schema id="17" parent="2" name="information_schema">
+      <ObjectId>12267</ObjectId>
+      <Owner>julien</Owner>
+    </schema>
+    <schema id="18" parent="2" name="myerp">
+      <ObjectId>43692</ObjectId>
+      <Owner>julien</Owner>
+      <IntrospectionTimestamp>2018-11-09.11:49:24.127</IntrospectionTimestamp>
+      <IntrospectionStateNumber>48293</IntrospectionStateNumber>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="19" parent="2" name="pg_catalog">
+      <ObjectId>11</ObjectId>
+      <Comment>system catalog schema</Comment>
+      <Owner>julien</Owner>
+    </schema>
+    <schema id="20" parent="2" name="pg_temp_1">
+      <ObjectId>11736</ObjectId>
+      <Owner>julien</Owner>
+    </schema>
+    <schema id="21" parent="2" name="pg_toast">
+      <ObjectId>99</ObjectId>
+      <Comment>reserved schema for TOAST tables</Comment>
+      <Owner>julien</Owner>
+    </schema>
+    <schema id="22" parent="2" name="pg_toast_temp_1">
+      <ObjectId>11737</ObjectId>
+      <Owner>julien</Owner>
+    </schema>
+    <schema id="23" parent="2" name="public">
+      <ObjectId>2200</ObjectId>
+      <Comment>standard public schema</Comment>
+      <Owner>julien</Owner>
+      <IntrospectionTimestamp>2018-11-09.11:36:11.272</IntrospectionTimestamp>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <access-method id="24" parent="2" name="btree">
+      <ObjectId>403</ObjectId>
+      <Comment>b-tree index access method</Comment>
+      <Handler>pg_catalog.bthandler</Handler>
+      <HandlerId>330</HandlerId>
+      <Type>index</Type>
+    </access-method>
+    <access-method id="25" parent="2" name="hash">
+      <ObjectId>405</ObjectId>
+      <Comment>hash index access method</Comment>
+      <Handler>pg_catalog.hashhandler</Handler>
+      <HandlerId>331</HandlerId>
+      <Type>index</Type>
+    </access-method>
+    <access-method id="26" parent="2" name="gist">
+      <ObjectId>783</ObjectId>
+      <Comment>GiST index access method</Comment>
+      <Handler>pg_catalog.gisthandler</Handler>
+      <HandlerId>332</HandlerId>
+      <Type>index</Type>
+    </access-method>
+    <access-method id="27" parent="2" name="gin">
+      <ObjectId>2742</ObjectId>
+      <Comment>GIN index access method</Comment>
+      <Handler>pg_catalog.ginhandler</Handler>
+      <HandlerId>333</HandlerId>
+      <Type>index</Type>
+    </access-method>
+    <access-method id="28" parent="2" name="spgist">
+      <ObjectId>4000</ObjectId>
+      <Comment>SP-GiST index access method</Comment>
+      <Handler>pg_catalog.spghandler</Handler>
+      <HandlerId>334</HandlerId>
+      <Type>index</Type>
+    </access-method>
+    <access-method id="29" parent="2" name="brin">
+      <ObjectId>3580</ObjectId>
+      <Comment>block range index (BRIN) access method</Comment>
+      <Handler>pg_catalog.brinhandler</Handler>
+      <HandlerId>335</HandlerId>
+      <Type>index</Type>
+    </access-method>
+    <sequence id="30" parent="18" name="ecriture_comptable_id_seq">
+      <ObjectId>43703</ObjectId>
+      <Owner>julien</Owner>
+      <StateNumber>48287</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>bigint</DataType>
+    </sequence>
+    <table id="31" parent="18" name="compte_comptable">
+      <ObjectId>43711</ObjectId>
+      <Owner>julien</Owner>
+      <StateNumber>48293</StateNumber>
+    </table>
+    <table id="32" parent="18" name="ecriture_comptable">
+      <ObjectId>43705</ObjectId>
+      <Owner>julien</Owner>
+      <StateNumber>48292</StateNumber>
+    </table>
+    <table id="33" parent="18" name="journal_comptable">
+      <ObjectId>43693</ObjectId>
+      <Owner>julien</Owner>
+      <StateNumber>48291</StateNumber>
+    </table>
+    <table id="34" parent="18" name="ligne_ecriture_comptable">
+      <ObjectId>43716</ObjectId>
+      <Owner>julien</Owner>
+      <StateNumber>48293</StateNumber>
+    </table>
+    <table id="35" parent="18" name="sequence_ecriture_comptable">
+      <ObjectId>43698</ObjectId>
+      <Owner>julien</Owner>
+      <StateNumber>48290</StateNumber>
+    </table>
+    <column id="36" parent="31" name="numero">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>48288</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="37" parent="31" name="libelle">
+      <Position>2</Position>
+      <DataType>varchar(150)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>48288</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="38" parent="31" name="compte_comptable_pk">
+      <ObjectId>43714</ObjectId>
+      <ColNames>numero</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="39" parent="31" name="compte_comptable_pk">
+      <ObjectId>43715</ObjectId>
+      <ColNames>numero</ColNames>
+      <UnderlyingIndexName>compte_comptable_pk</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="40" parent="32" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>48286</StateNumber>
+      <DefaultExpression>nextval(&apos;myerp.ecriture_comptable_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="41" parent="32" name="journal_code">
+      <Position>2</Position>
+      <DataType>varchar(5)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>48286</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="42" parent="32" name="reference">
+      <Position>3</Position>
+      <DataType>varchar(30)|0s</DataType>
+      <StateNumber>48286</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="43" parent="32" name="date">
+      <Position>4</Position>
+      <DataType>timestamp|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>48286</StateNumber>
+      <TypeId>1114</TypeId>
+    </column>
+    <column id="44" parent="32" name="libelle">
+      <Position>5</Position>
+      <DataType>varchar(200)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>48286</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="45" parent="32" name="ecriture_comptable_pk">
+      <ObjectId>43709</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="46" parent="32" name="ecriture_comptable_pk">
+      <ObjectId>43710</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>ecriture_comptable_pk</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="47" parent="32" name="journal_comptable_ecriture_comptable_fk">
+      <ObjectId>43726</ObjectId>
+      <ColNames>journal_code</ColNames>
+      <RefTableId>43693</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>journal_comptable</RefTableName>
+      <RefKeyName>journal_comptable_pk</RefKeyName>
+      <RefColNames>code</RefColNames>
+    </foreign-key>
+    <column id="48" parent="33" name="code">
+      <Position>1</Position>
+      <DataType>varchar(5)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>48283</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="49" parent="33" name="libelle">
+      <Position>2</Position>
+      <DataType>varchar(150)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>48283</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="50" parent="33" name="journal_comptable_pk">
+      <ObjectId>43696</ObjectId>
+      <ColNames>code</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="51" parent="33" name="journal_comptable_pk">
+      <ObjectId>43697</ObjectId>
+      <ColNames>code</ColNames>
+      <UnderlyingIndexName>journal_comptable_pk</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="52" parent="34" name="ecriture_id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>48289</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="53" parent="34" name="ligne_id">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>48289</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="54" parent="34" name="compte_comptable_numero">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>48289</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="55" parent="34" name="libelle">
+      <Position>4</Position>
+      <DataType>varchar(200)|0s</DataType>
+      <StateNumber>48289</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="56" parent="34" name="debit">
+      <Position>5</Position>
+      <DataType>numeric(15,2 digit)|0s</DataType>
+      <StateNumber>48289</StateNumber>
+      <TypeId>1700</TypeId>
+    </column>
+    <column id="57" parent="34" name="credit">
+      <Position>6</Position>
+      <DataType>numeric(15,2 digit)|0s</DataType>
+      <StateNumber>48289</StateNumber>
+      <TypeId>1700</TypeId>
+    </column>
+    <index id="58" parent="34" name="ligne_ecriture_comptable_pk">
+      <ObjectId>43719</ObjectId>
+      <ColNames>ecriture_id
+ligne_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="59" parent="34" name="ligne_ecriture_comptable_pk">
+      <ObjectId>43720</ObjectId>
+      <ColNames>ecriture_id
+ligne_id</ColNames>
+      <UnderlyingIndexName>ligne_ecriture_comptable_pk</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="60" parent="34" name="ecriture_comptable_ligne_ecriture_comptable_fk">
+      <ObjectId>43731</ObjectId>
+      <ColNames>ecriture_id</ColNames>
+      <RefTableId>43705</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>ecriture_comptable</RefTableName>
+      <RefKeyName>ecriture_comptable_pk</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="61" parent="34" name="compte_comptable_ligne_ecriture_comptable_fk">
+      <ObjectId>43736</ObjectId>
+      <ColNames>compte_comptable_numero</ColNames>
+      <RefTableId>43711</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>compte_comptable</RefTableName>
+      <RefKeyName>compte_comptable_pk</RefKeyName>
+      <RefColNames>numero</RefColNames>
+    </foreign-key>
+    <column id="62" parent="35" name="journal_code">
+      <Position>1</Position>
+      <DataType>varchar(5)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>48284</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="63" parent="35" name="annee">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>48284</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="64" parent="35" name="derniere_valeur">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>48284</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="65" parent="35" name="sequence_ecriture_comptable_pk">
+      <ObjectId>43701</ObjectId>
+      <ColNames>journal_code
+annee</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="66" parent="35" name="sequence_ecriture_comptable_pk">
+      <ObjectId>43702</ObjectId>
+      <ColNames>journal_code
+annee</ColNames>
+      <UnderlyingIndexName>sequence_ecriture_comptable_pk</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="67" parent="35" name="journal_comptable_sequence_ecriture_comptable_fk">
+      <ObjectId>43721</ObjectId>
+      <ColNames>journal_code</ColNames>
+      <RefTableId>43693</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>journal_comptable</RefTableName>
+      <RefKeyName>journal_comptable_pk</RefKeyName>
+      <RefColNames>code</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MYERP@localhost" uuid="1707aaf7-81a4-4a60-978a-674a5d48b9bb">
+      <database-info product="PostgreSQL" version="10.5" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.2" dbms="POSTGRES" exact-version="10.5">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>julien</user-name>
+      <introspection-schemas>@:@|MYERP:myerp</introspection-schemas>
+    </data-source>
+    <data-source name="db_myerp@localhost" uuid="7645caf8-0bd4-4cc1-86b6-d5d77e663173">
+      <database-info product="PostgreSQL" version="9.4.19" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.2" dbms="POSTGRES" exact-version="9.4.19" exact-driver-version="42.2">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>usr_myerp</user-name>
+      <introspection-schemas>@:@|db_myerp:myerp</introspection-schemas>
+    </data-source>
+  </component>
+</project>

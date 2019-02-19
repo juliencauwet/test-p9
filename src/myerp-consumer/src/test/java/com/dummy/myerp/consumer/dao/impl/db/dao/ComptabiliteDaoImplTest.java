@@ -162,6 +162,8 @@ public class ComptabiliteDaoImplTest {
         Assert.assertEquals(1 ,sec.size() );
     }
 
+
+
     @After
     public void afterTest(){}{
 
