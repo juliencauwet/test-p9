@@ -102,4 +102,6 @@ public interface ComptabiliteDao {
      */
     void updateSequenceEcritureComptable(SequenceEcritureComptable sequence);
 
+    void deleteSequenceEcritureComptable(SequenceEcritureComptable sequence);
+
 }

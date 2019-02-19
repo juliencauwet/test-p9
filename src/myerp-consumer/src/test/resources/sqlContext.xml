@@ -135,6 +135,7 @@
                 WHERE journal_code=:journal_code AND annee=:annee
             </value>
         </property>
+
     </bean>
 
 </beans>

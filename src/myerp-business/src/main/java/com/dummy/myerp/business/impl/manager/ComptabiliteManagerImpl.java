@@ -108,7 +108,8 @@ public class ComptabiliteManagerImpl extends AbstractBusinessManager implements 
 
         if(valeur == 1)
             getDaoProxy().getComptabiliteDao().insertSequenceEcritureComptable(newSeq);
-
+        else
+            getDaoProxy().getComptabiliteDao().updateSequenceEcritureComptable(newSeq);
 
     }
 
